@@ -1,0 +1,3288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GasLink | Products</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* CSS goes here */
+    :root {
+      --primary: #FF6B00;
+      --secondary: #0A2540;
+      --accent: #FFC107;
+      --background: #F5F7FA;
+      --text: #1A1A1A;
+      --border: #E0E0E0;
+
+      --radius: 14px;
+      --radius-lg: 18px;
+      --shadow: 0 10px 30px rgba(10, 37, 64, 0.12);
+      --shadow-soft: 0 6px 18px rgba(10, 37, 64, 0.10);
+
+      --container: 1180px;
+      --nav-h: 64px;
+
+      --transition: 180ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(224, 224, 224, 0.85);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-h);
+      background: rgba(245, 247, 250, 0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(224, 224, 224, 0.55);
+    }
+
+    .nav__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 16px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .nav__left,
+    .nav__right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .brand__logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(255, 107, 0, 0.14);
+      border: 1px solid rgba(255, 107, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand__name {
+      font-family: Poppins, Inter, sans-serif;
+      font-size: 16px;
+      line-height: 1.1;
+      color: var(--secondary);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link {
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: rgba(10, 37, 64, 0.92);
+      font-weight: 600;
+      font-size: 13px;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.is-active {
+      background: rgba(255, 107, 0, 0.10);
+      color: var(--secondary);
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(224, 224, 224, 0.9);
+      background: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 107, 0, 0.35);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .badge {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      padding: 0 6px;
+      background: var(--accent);
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 12px;
+      border: 1px solid rgba(224, 224, 224, 0.4);
+    }
+
+    .cart-btn {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 11px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn--primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 22px rgba(255, 107, 0, 0.25);
+    }
+
+    .btn--primary:hover {
+      background: #ff7a1f;
+      box-shadow: 0 14px 28px rgba(255, 107, 0, 0.30);
+    }
+
+    .btn--ghost {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(224, 224, 224, 0.95);
+      color: var(--secondary);
+    }
+
+    .btn--ghost:hover {
+      border-color: rgba(255, 107, 0, 0.35);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .content {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 22px 16px 48px;
+    }
+
+    .products-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .sidebar {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(224, 224, 224, 0.75);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .nav-sidebar,
+    .filter-sidebar {
+      display: none;
+    }
+
+    .sidebar__title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px 12px;
+      color: var(--secondary);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .sidebar__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .side-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 700;
+      color: rgba(10, 37, 64, 0.95);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+      user-select: none;
+    }
+
+    .side-link:hover {
+      background: rgba(255, 107, 0, 0.10);
+      border-color: rgba(255, 107, 0, 0.20);
+      transform: translateX(2px);
+    }
+
+    .side-link.is-active {
+      background: rgba(255, 107, 0, 0.14);
+      border-color: rgba(255, 107, 0, 0.28);
+    }
+
+    .filters {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .filter-group {
+      background: rgba(255, 255, 255, 0.90);
+      border-radius: 12px;
+      padding: 10px;
+      border: 1px solid rgba(224, 224, 224, 0.90);
+    }
+
+    .filter-group h4 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--secondary);
+      font-weight: 800;
+    }
+
+    .checkbox-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .price-fields {
+      display: flex;
+      gap: 8px;
+    }
+
+    .price-fields input,
+    #filterSearch,
+    #mobileFilterSearch,
+    .controls__search input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(224, 224, 224, 0.9);
+      background: rgba(255, 255, 255, 0.96);
+      outline: none;
+    }
+
+    .price-fields input:focus,
+    #filterSearch:focus,
+    #mobileFilterSearch:focus,
+    .controls__search input:focus {
+      border-color: rgba(255, 107, 0, 0.35);
+    }
+
+    .filter-actions-row {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mobile-tools {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+    }
+
+    .mobile-tools__btn {
+      flex: 1 1 0;
+    }
+
+    .page-hero {
+      padding: 26px 22px;
+      overflow: hidden;
+    }
+
+    .page-hero__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .page-hero__content h1 {
+      margin: 0;
+      font-family: Poppins, Inter, sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.4px;
+      color: var(--secondary);
+    }
+
+    .page-hero__text {
+      margin: 10px 0 0;
+      max-width: 55ch;
+      color: rgba(10, 37, 64, 0.82);
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .page-hero__art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-hero__icon-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.22);
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .controls__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .controls__left,
+    .controls__right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .controls__title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: var(--secondary);
+    }
+
+    .controls__title strong {
+      font-weight: 900;
+    }
+
+    .controls__search {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .sort-select {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(224, 224, 224, 0.9);
+      background: rgba(255, 255, 255, 0.96);
+      font-weight: 700;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .load-more-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 6px;
+    }
+
+    .products-tip {
+      margin-top: 4px;
+    }
+
+    .muted {
+      color: rgba(10, 37, 64, 0.66);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* =========================
+   Part 2: Mobile Drawers
+========================= */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(10, 37, 64, 0.26);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    .drawer-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: var(--nav-h);
+      bottom: 0;
+      width: min(360px, 100vw);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(224, 224, 224, 0.85);
+      box-shadow: 0 20px 60px rgba(10, 37, 64, 0.18);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      transition: transform 240ms ease;
+    }
+
+    .drawer--nav {
+      left: 0;
+      transform: translateX(-105%);
+      border-radius: 0 18px 18px 0;
+    }
+
+    .drawer--filter {
+      right: 0;
+      transform: translateX(105%);
+      border-radius: 18px 0 0 18px;
+    }
+
+    .drawer.is-open.drawer--nav,
+    .drawer.is-open.drawer--filter {
+      transform: translateX(0);
+    }
+
+    .drawer__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px;
+      border-bottom: 1px solid rgba(224, 224, 224, 0.8);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 247, 250, 0.72));
+    }
+
+    .drawer__title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--secondary);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .drawer__body {
+      padding: 14px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .page-hero__grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .products-shell {
+        grid-template-columns: 180px 220px minmax(0, 1fr);
+        align-items: start;
+        gap: 16px;
+      }
+
+      .nav-sidebar,
+      .filter-sidebar {
+        display: block;
+        position: sticky;
+        top: calc(var(--nav-h) + 18px);
+        align-self: start;
+      }
+
+      .nav-sidebar {
+        padding: 12px;
+      }
+
+      .filter-sidebar {
+        padding: 12px;
+      }
+
+      .mobile-tools {
+        display: none;
+      }
+
+      .drawer,
+      .drawer-overlay {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .controls__search {
+        flex-wrap: wrap;
+      }
+
+      .controls__search .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav__right .nav-links {
+        display: none;
+      }
+
+      .content {
+        padding: 18px 12px 42px;
+      }
+
+      .page-hero {
+        padding: 22px 16px;
+      }
+
+      .controls {
+        padding: 12px;
+      }
+
+      .mobile-tools {
+        padding: 10px;
+      }
+
+      .controls__search {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    /* =========================
+   Desktop filter sidebar slimming
+========================= */
+    @media (min-width: 1024px) {
+
+      .filter-sidebar .sidebar__title,
+      .nav-sidebar .sidebar__title {
+        padding: 6px 8px 10px;
+        font-size: 13px;
+      }
+
+      .filter-sidebar .filters {
+        gap: 10px;
+      }
+
+      .filter-sidebar .filter-group {
+        padding: 8px;
+      }
+
+      .filter-sidebar .filter-group h4 {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+
+      .filter-sidebar .price-fields {
+        gap: 6px;
+      }
+
+      .filter-sidebar .price-fields input,
+      .filter-sidebar #filterSearch {
+        padding: 9px 10px;
+        font-size: 13px;
+      }
+
+      .filter-sidebar .filter-actions-row .btn {
+        padding: 10px 10px;
+        font-size: 12px;
+      }
+
+      .nav-sidebar .side-link {
+        padding: 10px 10px;
+        font-size: 13px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+    }
+
+    /* =========================
+   Part 3: Product Cards
+========================= */
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .product-card {
+      width: 100%;
+      min-width: 0;
+      border-radius: 18px;
+      border: 1px solid rgba(224, 224, 224, 0.85);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.70));
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 107, 0, 0.28);
+      box-shadow: 0 18px 40px rgba(10, 37, 64, 0.12);
+    }
+
+    .product-card__img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: #fff;
+      border-bottom: 1px solid rgba(224, 224, 224, 0.55);
+    }
+
+    .product-card__body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .product-card__top {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .product-card__name {
+      margin: 0;
+      font-weight: 900;
+      font-size: 15px;
+      line-height: 1.35;
+      color: var(--secondary);
+      letter-spacing: -0.15px;
+    }
+
+    .product-card__meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .product-card__meta {
+      color: rgba(10, 37, 64, 0.76);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* =========================
+   Match Products Page Cards to Homepage Card Size
+========================= */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+  gap: 18px;
+  justify-content: start;
+  margin-top: 30px;
+}
+
+.product-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 360px;
+  border-radius: 18px;
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.70));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 107, 0, 0.28);
+  box-shadow: 0 18px 40px rgba(10, 37, 64, 0.12);
+}
+
+.product-card__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #fff;
+  border-bottom: 1px solid rgba(224, 224, 224, 0.55);
+}
+
+.product-card__body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.product-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-card__name {
+  margin: 0;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--secondary);
+  letter-spacing: -0.15px;
+}
+
+.product-card__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product-card__meta {
+  color: rgba(10, 37, 64, 0.76);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.pill {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 193, 7, 0.18);
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  color: rgba(10, 37, 64, 0.92);
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.product-card__desc {
+  margin: 0;
+  color: rgba(10, 37, 64, 0.78);
+  font-weight: 600;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.product-card__bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-card__price {
+  font-weight: 1000;
+  color: var(--secondary);
+  letter-spacing: -0.2px;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.product-card__actions {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-card__actions .btn {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 12px;
+  font-size: 12.5px;
+}
+
+.quick-view-btn,
+.add-cart-btn {
+  padding: 10px 12px;
+}
+
+/* Desktop: force 3 cards per row cleanly */
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .product-card {
+    max-width: 100%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .product-card {
+    max-width: 100%;
+  }
+
+  .product-card__actions {
+    flex-wrap: nowrap;
+  }
+
+  .product-card__actions .btn {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .product-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .product-card__actions .btn {
+    width: 100%;
+  }
+}
+
+    .product-card__bottom {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-card__price {
+      font-weight: 1000;
+      color: var(--secondary);
+      letter-spacing: -0.2px;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .product-card__actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .product-card__actions .btn {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .quick-view-btn,
+    .add-cart-btn {
+      padding: 10px 12px;
+    }
+
+    @media (min-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card__img {
+        height: 190px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .product-card__actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .product-card__actions .btn {
+        width: 100%;
+      }
+    }
+
+    /* =========================
+   Desktop Collapsible Filter Sidebar
+========================= */
+    .desktop-filter-toggle {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .desktop-filter-toggle {
+        display: inline-flex;
+      }
+
+      .products-shell {
+        transition: grid-template-columns 260ms ease, gap 260ms ease;
+      }
+
+      .filter-sidebar {
+        transition:
+          opacity 220ms ease,
+          transform 260ms ease,
+          width 260ms ease,
+          padding 260ms ease,
+          margin 260ms ease,
+          border-color 200ms ease;
+        transform-origin: left center;
+      }
+
+      body.filters-collapsed .products-shell {
+        grid-template-columns: 180px 0 minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      body.filters-collapsed .filter-sidebar {
+        opacity: 0;
+        pointer-events: none;
+        overflow: hidden;
+        padding: 0;
+        border-width: 0;
+        transform: translateX(-18px);
+      }
+
+      body.filters-collapsed .page-hero,
+      body.filters-collapsed .controls {
+        width: 100%;
+      }
+
+      body.filters-collapsed .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .desktop-filter-toggle {
+        display: none;
+      }
+    }
+
+    /* =========================
+   Product Card Refinement Pass
+========================= */
+
+    /* Give the grid a little more room to breathe */
+    .products-grid {
+      gap: 18px;
+    }
+
+    /* Calmer card proportions */
+    .product-card {
+      min-height: 380px;
+      border-radius: 20px;
+    }
+
+    /* Slightly shorter image so text has more room */
+    .product-card__img {
+      height: 190px;
+    }
+
+    /* Better inner spacing */
+    .product-card__body {
+      padding: 16px;
+      gap: 12px;
+    }
+
+    /* Better separation in the top block */
+    .product-card__top {
+      gap: 10px;
+    }
+
+    .product-card__name {
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .product-card__meta {
+      font-size: 12.5px;
+    }
+
+    /* Smaller pills feel less crowded */
+    .pill {
+      padding: 6px 9px;
+      font-size: 11.5px;
+    }
+
+    /* Description gets a bit more breathing room */
+    .product-card__desc {
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* Bottom section spacing */
+    .product-card__bottom {
+      gap: 14px;
+    }
+
+    /* Make price stand out more cleanly */
+    .product-card__price {
+      font-size: 17px;
+    }
+
+    /* Button row refinement */
+    .product-card__actions {
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .product-card__actions .btn {
+      min-height: 42px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+    }
+
+    /* Desktop-specific polish */
+    @media (min-width: 1024px) {
+      .products-grid {
+        gap: 20px;
+      }
+
+      .product-card {
+        min-height: 395px;
+      }
+
+      .product-card__img {
+        height: 185px;
+      }
+
+      .product-card__body {
+        padding: 17px;
+      }
+    }
+
+    /* Tablet */
+    @media (max-width: 1023px) {
+      .product-card {
+        min-height: 370px;
+      }
+
+      .product-card__img {
+        height: 195px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .products-grid {
+        gap: 16px;
+      }
+
+      .product-card {
+        min-height: 360px;
+      }
+
+      .product-card__img {
+        height: 180px;
+      }
+
+      .product-card__body {
+        padding: 14px;
+        gap: 10px;
+      }
+
+      .product-card__bottom {
+        gap: 12px;
+      }
+    }
+
+    /* =========================
+   Part 4: Filter Chips + Visibility
+========================= */
+    .chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(10, 37, 64, 0.03);
+      border: 1px solid rgba(224, 224, 224, 0.9);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--secondary);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 107, 0, 0.25);
+      background: rgba(255, 107, 0, 0.06);
+    }
+
+    .chip.is-active {
+      background: rgba(255, 107, 0, 0.12);
+      border-color: rgba(255, 107, 0, 0.22);
+      color: var(--secondary);
+    }
+
+    .product-card.is-hidden {
+      display: none !important;
+    }
+    /* =========================
+   Part 5: Shared Cart + Quick View
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 37, 64, 0.32);
+  backdrop-filter: blur(2px);
+}
+
+.modal__panel {
+  position: relative;
+  margin: 0 auto;
+  top: 8vh;
+  width: min(720px, calc(100vw - 24px));
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(224, 224, 224, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(10, 37, 64, 0.35);
+  overflow: hidden;
+  animation: popIn 160ms ease-out;
+}
+
+.modal__panel--quick {
+  width: min(880px, calc(100vw - 24px));
+}
+
+@keyframes popIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(224, 224, 224, 0.8);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,247,250,0.65));
+}
+
+.modal__header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal__header h3 {
+  margin: 0;
+  color: var(--secondary);
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 16px;
+}
+
+.modal__subtext {
+  margin: 0;
+  color: rgba(10, 37, 64, 0.72);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.modal__close {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(224, 224, 224, 0.95);
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.quick-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 16px;
+}
+
+.quick-view__image-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  background: #fff;
+}
+
+.quick-view__image {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.quick-view__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quick-view__name {
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  color: var(--secondary);
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.quick-view__meta-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.quick-view__desc {
+  margin: 0;
+  color: rgba(10, 37, 64, 0.8);
+  font-weight: 600;
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.quick-view__price {
+  font-size: 22px;
+  font-weight: 1000;
+  color: var(--secondary);
+}
+
+.quick-view__actions {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(224, 224, 224, 0.9);
+  border-radius: 14px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.qty-control__btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(10, 37, 64, 0.05);
+  font-weight: 900;
+  color: var(--secondary);
+}
+
+.qty-control__value {
+  min-width: 32px;
+  text-align: center;
+  font-weight: 900;
+  color: var(--secondary);
+}
+
+.cart-empty {
+  padding: 14px;
+  background: rgba(255, 107, 0, 0.10);
+  border: 1px dashed rgba(255, 107, 0, 0.35);
+  border-radius: 18px;
+  color: rgba(10, 37, 64, 0.88);
+  font-weight: 800;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(224, 224, 224, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.cart-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(224, 224, 224, 0.9);
+}
+
+.cart-item__name {
+  margin: 0;
+  font-weight: 1000;
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.cart-item__meta {
+  margin: 6px 0 0;
+  color: rgba(10, 37, 64, 0.78);
+  font-weight: 650;
+  font-size: 13px;
+}
+
+.qty-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.qty {
+  font-weight: 1000;
+  background: rgba(255, 193, 7, 0.20);
+  border: 1px solid rgba(255, 193, 7, 0.38);
+  padding: 7px 10px;
+  border-radius: 14px;
+  min-width: 64px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: rgba(10, 37, 64, 0.05);
+  border: 1px solid rgba(10, 37, 64, 0.14);
+  color: rgba(10, 37, 64, 0.95);
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-weight: 1000;
+  white-space: nowrap;
+}
+
+.modal__footer {
+  padding: 14px 16px 16px;
+  border-top: 1px solid rgba(224, 224, 224, 0.8);
+  background: rgba(245, 247, 250, 0.65);
+}
+
+.total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-weight: 1000;
+  color: var(--secondary);
+}
+
+.checkout-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn--accent {
+  background: var(--accent);
+  color: #1a1a1a;
+  box-shadow: 0 10px 22px rgba(255, 193, 7, 0.22);
+}
+
+.btn--accent:hover {
+  background: #ffd54a;
+  box-shadow: 0 14px 28px rgba(255, 193, 7, 0.28);
+}
+
+.btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.checkout-wrap .btn {
+  min-width: 240px;
+}
+
+@media (max-width: 768px) {
+  .quick-view {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-view__image {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .modal__panel {
+    top: 4vh;
+    width: min(100vw - 16px, 720px);
+  }
+
+  .cart-item {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .cart-item > div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .checkout-wrap {
+    justify-content: stretch;
+  }
+
+  .checkout-wrap .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================
+   Footer (Shared Style)
+========================= */
+.footer {
+  margin-top: auto;
+  padding: 28px 16px 40px;
+  border-top: 1px solid rgba(224, 224, 224, 0.7);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.footer__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__title {
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--secondary);
+}
+
+.footer__subtitle {
+  margin: 0;
+  color: rgba(10, 37, 64, 0.66);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.footer-item {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.footer-item strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+.footer-item span {
+  color: rgba(10, 37, 64, 0.80);
+  font-weight: 650;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .footer {
+    padding: 24px 12px 36px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <!-- =========================
+         Top Navigation
+    ========================= -->
+    <header class="nav" role="banner">
+      <div class="nav__inner">
+        <div class="nav__left">
+          <a class="brand" href="../index.html" aria-label="GasLink Home">
+            <span class="brand__logo" aria-hidden="true">
+              <i data-lucide="flame" style="width:20px;height:20px;color:var(--secondary);"></i>
+            </span>
+            <span class="brand__name">GasLink</span>
+          </a>
+        </div>
+
+        <div class="nav__right">
+          <nav class="nav-links" aria-label="Top navigation">
+            <a class="nav-link" href="../index.html">Home</a>
+            <a class="nav-link is-active" href="../products.html">Products</a>
+            <a class="nav-link" href="../index.html#products">Order / Refill</a>
+            <a class="nav-link" href="../faq.html">FAQ & About</a>
+          </nav>
+
+          <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart">
+            <i data-lucide="shopping-cart" style="width:20px;height:20px;"></i>
+            <span class="badge cart-badge" id="cartBadge">0</span>
+            <span class="sr-only">Cart</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+         Mobile Overlay
+    ========================= -->
+    <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+
+    <!-- =========================
+         Mobile Navigation Drawer
+    ========================= -->
+    <aside class="drawer drawer--nav" id="mobileNavDrawer" aria-label="Mobile page navigation">
+      <div class="drawer__header">
+        <div class="drawer__title">
+          <i data-lucide="compass" style="width:18px;height:18px;"></i>
+          Navigation
+        </div>
+
+        <button class="icon-btn" id="mobileNavClose" aria-label="Close menu">
+          <i data-lucide="x" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+
+      <div class="drawer__body">
+        <div class="sidebar__nav">
+          <a class="side-link" href="../index.html">
+            <i data-lucide="home" style="width:18px;height:18px;"></i>
+            Home
+          </a>
+
+          <a class="side-link is-active" href="../products.html">
+            <i data-lucide="shopping-bag" style="width:18px;height:18px;"></i>
+            Products
+          </a>
+
+          <a class="side-link" href="../faq.html">
+            <i data-lucide="help-circle" style="width:18px;height:18px;"></i>
+            FAQ & About
+          </a>
+
+          <a class="side-link" href="#" id="mobileDrawerCartLink">
+            <i data-lucide="shopping-cart" style="width:18px;height:18px;"></i>
+            Cart
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =========================
+         Mobile Filter Drawer
+    ========================= -->
+    <aside class="drawer drawer--filter" id="mobileFilterDrawer" aria-label="Mobile product filters">
+      <div class="drawer__header">
+        <div class="drawer__title">
+          <i data-lucide="filter" style="width:18px;height:18px;"></i>
+          Filters
+        </div>
+
+        <button class="icon-btn" id="mobileFilterClose" aria-label="Close filters">
+          <i data-lucide="x" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+
+      <div class="drawer__body">
+        <div class="filters">
+          <div class="filter-group">
+            <h4>Category</h4>
+            <div class="checkbox-row" id="mobileCategoryOptions">
+              <!-- mobile chips added later -->
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Cylinder Size</h4>
+            <div class="checkbox-row" id="mobileSizeOptions">
+              <!-- mobile chips added later -->
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Brand</h4>
+            <div class="checkbox-row" id="mobileBrandOptions">
+              <!-- mobile chips added later -->
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Price Range</h4>
+            <div class="price-fields">
+              <input type="number" id="mobilePriceMin" placeholder="Min" />
+              <input type="number" id="mobilePriceMax" placeholder="Max" />
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Search</h4>
+            <input id="mobileFilterSearch" type="search" placeholder="Product name, brand..." />
+          </div>
+
+          <div class="filter-actions-row">
+            <button class="btn btn--ghost" id="mobileResetFilters" type="button">Reset</button>
+            <button class="btn btn--primary" id="mobileApplyFilters" type="button">Apply Filters</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =========================
+         Main Content
+    ========================= -->
+    <main class="content" role="main">
+      <div class="products-shell">
+        <!-- =========================
+             Navigation Sidebar
+        ========================= -->
+        <aside class="sidebar nav-sidebar" aria-label="Products page navigation">
+          <div class="sidebar__title">
+            <i data-lucide="compass" style="width:18px;height:18px;"></i>
+            Navigation
+          </div>
+
+          <div class="sidebar__nav">
+            <a class="side-link" href="../index.html">
+              <i data-lucide="home" style="width:18px;height:18px;"></i>
+              Home
+            </a>
+
+            <a class="side-link is-active" href="../products.html">
+              <i data-lucide="shopping-bag" style="width:18px;height:18px;"></i>
+              Products
+            </a>
+
+            <a class="side-link" href="../faq.html">
+              <i data-lucide="help-circle" style="width:18px;height:18px;"></i>
+              FAQ & About
+            </a>
+
+            <a class="side-link" href="#" id="sidebarCartLink">
+              <i data-lucide="shopping-cart" style="width:18px;height:18px;"></i>
+              Cart
+            </a>
+          </div>
+        </aside>
+
+        <!-- =========================
+             Filter Sidebar
+        ========================= -->
+        <aside class="sidebar filter-sidebar" id="desktopFilterSidebar" aria-label="Product filters">
+          <div class="sidebar__title">
+            <i data-lucide="filter" style="width:18px;height:18px;"></i>
+            Filters
+          </div>
+
+          <div class="filters">
+            <div class="filter-group">
+              <h4>Category</h4>
+              <div class="checkbox-row" id="categoryOptions">
+                <!-- chips added later -->
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Cylinder Size</h4>
+              <div class="checkbox-row" id="sizeOptions">
+                <!-- chips added later -->
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Brand</h4>
+              <div class="checkbox-row" id="brandOptions">
+                <!-- chips added later -->
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Price Range</h4>
+              <div class="price-fields">
+                <input type="number" id="priceMin" placeholder="Min" />
+                <input type="number" id="priceMax" placeholder="Max" />
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Search</h4>
+              <input id="filterSearch" type="search" placeholder="Product name, brand..." />
+            </div>
+
+            <div class="filter-actions-row">
+              <button class="btn btn--ghost" id="resetFilters" type="button">Reset</button>
+              <button class="btn btn--primary" id="applyFilters" type="button">Apply Filters</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- =========================
+             Main Column
+        ========================= -->
+        <section class="main products-main">
+          <!-- =========================
+               Mobile Utility Bar
+          ========================= -->
+          <div class="card mobile-tools">
+            <button class="btn btn--ghost mobile-tools__btn" id="mobileNavBtn" type="button">
+              <i data-lucide="panel-left" style="width:18px;height:18px;"></i>
+              Menu
+            </button>
+
+            <button class="btn btn--ghost mobile-tools__btn" id="mobileFilterBtn" type="button">
+              <i data-lucide="filter" style="width:18px;height:18px;"></i>
+              Filters
+            </button>
+          </div>
+
+          <!-- =========================
+               Page Intro
+          ========================= -->
+          <section class="card page-hero">
+            <div class="page-hero__grid">
+              <div class="page-hero__content">
+                <p class="eyebrow">Products</p>
+                <h1>Cylinders and gas accessories</h1>
+                <p class="page-hero__text">
+                  Browse gas cylinders, burners, regulators, hose kits, pipes, and other accessories for home and
+                  commercial use.
+                </p>
+              </div>
+
+              <div class="page-hero__art" aria-hidden="true">
+                <div class="page-hero__icon-wrap">
+                  <i data-lucide="package-search" style="width:40px;height:40px;"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================
+               Products Controls
+          ========================= -->
+          <section class="card controls">
+            <div class="controls__row">
+              <div class="controls__left">
+                <button class="btn btn--ghost desktop-filter-toggle" id="desktopFilterToggle" type="button"
+                  aria-expanded="true">
+                  <i data-lucide="panel-left-close" style="width:18px;height:18px;"></i>
+                  Filters
+                </button>
+
+                <div class="controls__title">
+                  <i data-lucide="grid" style="width:18px;height:18px;color:rgba(10,37,64,.7);"></i>
+                  <strong>Products</strong>
+                  <span class="muted" id="resultCount">0 items</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="controls__right">
+              <label class="muted" for="sortSelect">Sort</label>
+              <select id="sortSelect" class="sort-select" aria-label="Sort products">
+                <option value="popular">Popularity</option>
+                <option value="price_asc">Price — Low to High</option>
+                <option value="price_desc">Price — High to Low</option>
+                <option value="newest">Newest</option>
+              </select>
+            </div>
+      </div>
+
+      <div class="controls__search">
+        <input id="quickSearch" type="search" placeholder="Quick search products..." />
+        <button class="btn btn--ghost" id="clearQuickSearch" type="button">Clear</button>
+      </div>
+      </section>
+
+      <!-- =========================
+               Products Grid
+          ========================= -->
+      <section id="productsGrid" class="products-grid" aria-live="polite" aria-busy="false">
+        <!-- =========================
+       Afrigas
+  ========================= -->
+        <article class="product-card" data-product-id="1" data-category="cylinders" data-size="6kg" data-brand="Afrigas"
+          data-price="1550" data-tag="Popular">
+          <img class="product-card__img" src="../assets/images/afrigas-6kg.jpg" alt="Afrigas 6kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Compact Afrigas cylinder designed for light household cooking and everyday convenience.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Afrigas 6kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">Afrigas • 6kg</span>
+                <span class="pill">Popular</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Compact Afrigas cylinder designed for light household cooking and everyday convenience.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 1,550</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="1">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="1">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="2" data-category="cylinders" data-size="13kg"
+          data-brand="Afrigas" data-price="2550" data-tag="Best Value">
+          <img class="product-card__img" src="../assets/images/afrigas-13kg.jpg" alt="Afrigas 13kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  A dependable family-size option for homes and small businesses needing regular cooking gas.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Afrigas 13kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">Afrigas • 13kg</span>
+                <span class="pill">Best Value</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              A dependable family-size option for homes and small businesses needing regular cooking gas.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 2,550</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="2">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="2">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="3" data-category="cylinders" data-size="50kg"
+          data-brand="Afrigas" data-price="9700" data-tag="Wholesale">
+          <img class="product-card__img" src="../assets/images/afrigas-50kg.jpg" alt="Afrigas 50kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Commercial bulk cylinder suitable for restaurants, institutions, and other high-use environments.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Afrigas 50kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">Afrigas • 50kg</span>
+                <span class="pill">Wholesale</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Commercial bulk cylinder suitable for restaurants, institutions, and other high-use environments.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 9,700</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="3">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="3">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- =========================
+       Pro-Gas
+  ========================= -->
+        <article class="product-card" data-product-id="4" data-category="cylinders" data-size="6kg" data-brand="Pro-Gas"
+          data-price="1600" data-tag="Popular">
+          <img class="product-card__img"
+            src="../assets/images/progas-6kg.jpg"
+            alt="Pro-Gas 6kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Compact Pro-Gas cylinder designed for light household cooking and everyday convenience.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Pro-Gas 6kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">Pro-Gas • 6kg</span>
+                <span class="pill">Popular</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              A practical 6kg Pro-Gas cylinder for apartments, starter kitchens, and compact cooking setups.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 1,600</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="4">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="4">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="5" data-category="cylinders" data-size="13kg"
+          data-brand="Pro-Gas" data-price="2500" data-tag="Reliable">
+          <img class="product-card__img" src="../assets/images/progas-13kg.jpg" alt="Pro-Gas 13kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Trusted mid-size cylinder built for consistent home cooking and dependable daily performance.
+</p>
+
+            <div class="product-card__top">
+              <h3 class="product-card__name">Pro-Gas 13kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">Pro-Gas • 13kg</span>
+                <span class="pill">Reliable</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Trusted mid-size cylinder built for consistent home cooking and dependable daily performance.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 2,500</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="5">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="5">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="6" data-category="cylinders" data-size="50kg"
+          data-brand="Pro-Gas" data-price="9800" data-tag="Wholesale">
+          <img class="product-card__img" src="../assets/images/progas-50kg.jpg" alt="Pro-Gas 50kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Large-capacity Pro-Gas cylinder for commercial kitchens and heavy-use gas demand.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Pro-Gas 50kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">Pro-Gas • 50kg</span>
+                <span class="pill">Wholesale</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Large-capacity Pro-Gas cylinder for commercial kitchens and heavy-use gas demand.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 9,800</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="6">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="6">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- =========================
+       K-Gas
+  ========================= -->
+        <article class="product-card" data-product-id="7" data-category="cylinders" data-size="6kg" data-brand="K-Gas"
+          data-price="1580" data-tag="Popular">
+          <img class="product-card__img" src="../assets/images/kgas-6kg.jpg" alt="K-Gas 6kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Efficient small-size K-Gas cylinder ideal for limited kitchen space and lighter cooking needs.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">K-Gas 6kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">K-Gas • 6kg</span>
+                <span class="pill">Popular</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Efficient small-size K-Gas cylinder ideal for limited kitchen space and lighter cooking needs.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 1,580</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="7">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="7">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="8" data-category="cylinders" data-size="13kg" data-brand="K-Gas"
+          data-price="2450" data-tag="Best Value">
+          <img class="product-card__img" src="../assets/images/kgas-13kg.jpg" alt="K-Gas 13kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  One of the most practical family-size gas options with balanced capacity and affordability.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">K-Gas 13kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">K-Gas • 13kg</span>
+                <span class="pill">Best Value</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              One of the most practical family-size gas options with balanced capacity and affordability.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 2,450</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="8">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="8">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="9" data-category="cylinders" data-size="50kg" data-brand="K-Gas"
+          data-price="9950" data-tag="Wholesale">
+          <img class="product-card__img" src="../assets/images/kgas-50kg.jpg" alt="K-Gas 50kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  High-capacity K-Gas bulk cylinder made for demanding commercial and institutional use.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">K-Gas 50kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">K-Gas • 50kg</span>
+                <span class="pill">Wholesale</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              High-capacity K-Gas bulk cylinder made for demanding commercial and institutional use.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 9,950</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="9">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="9">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- =========================
+       GasLink
+  ========================= -->
+        <article class="product-card" data-product-id="10" data-category="cylinders" data-size="6kg"
+          data-brand="GasLink" data-price="1500" data-tag="Budget">
+          <img class="product-card__img" src="../assets/images/gaslink-6kg.jpg" alt="GasLink 6kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Affordable 6kg option for lighter domestic usage and starter gas setups.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">GasLink 6kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">GasLink • 6kg</span>
+                <span class="pill">Budget</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Affordable 6kg option for lighter domestic usage and starter gas setups.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 1,500</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="10">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="10">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="11" data-category="cylinders" data-size="13kg"
+          data-brand="GasLink" data-price="2380" data-tag="Value">
+          <img class="product-card__img" src="../assets/images/gaslink-13kg.jpg" alt="GasLink 13kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Mid-size cylinder designed for regular household cooking with strong value for everyday use.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">GasLink 13kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">GasLink • 13kg</span>
+                <span class="pill">Value</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Mid-size cylinder designed for regular household cooking with strong value for everyday use.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 2,380</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="11">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="11">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="12" data-category="cylinders" data-size="50kg"
+          data-brand="GasLink" data-price="9400" data-tag="Bulk">
+          <img class="product-card__img" src="../assets/images/gaslink-50kg.jpg" alt="GasLink 50kg Cylinder" />
+          <div class="product-card__body">
+            <p class="product-card__hidden-desc" hidden>
+  Bulk GasLink cylinder option for commercial kitchens and larger cooking operations.
+</p>
+            <div class="product-card__top">
+              <h3 class="product-card__name">GasLink 50kg Cylinder</h3>
+              <div class="product-card__meta-row">
+                <span class="product-card__meta">GasLink • 50kg</span>
+                <span class="pill">Bulk</span>
+              </div>
+            </div>
+            <p class="product-card__desc">
+              Bulk GasLink cylinder option for commercial kitchens and larger cooking operations.
+            </p>
+            <div class="product-card__bottom">
+              <div class="product-card__price">KES 9,400</div>
+              <div class="product-card__actions">
+                <button class="btn btn--ghost quick-view-btn" type="button" data-quick-view="12">
+                  <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                  Quick View
+                </button>
+                <button class="btn btn--primary add-cart-btn" type="button" data-add-to-cart="12">
+                  <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <div class="load-more-wrap">
+        <button class="btn btn--ghost" id="loadMoreBtn" type="button">Load more</button>
+      </div>
+
+      <div class="products-tip">
+        <small class="muted">
+          Tip: use filters to narrow down cylinders and accessories quickly.
+        </small>
+      </div>
+      </section>
+  </div>
+  </main>
+
+  <!-- =========================
+     Quick View Modal
+========================= -->
+<div class="modal" id="quickModal" role="dialog" aria-modal="true" aria-labelledby="quickTitle">
+  <div class="modal__overlay" id="quickOverlay"></div>
+
+  <div class="modal__panel modal__panel--quick">
+    <div class="modal__header">
+      <h3 id="quickTitle">Product Details</h3>
+
+      <button class="modal__close" id="quickCloseBtn" aria-label="Close quick view">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+    </div>
+
+    <div class="quick-view">
+      <div class="quick-view__image-wrap">
+        <img id="quickImage" class="quick-view__image" src="" alt="" />
+      </div>
+
+      <div class="quick-view__content">
+        <div class="quick-view__top">
+          <p class="quick-view__brand muted" id="quickBrand"></p>
+          <h3 class="quick-view__name" id="quickName"></h3>
+          <div class="quick-view__meta-row">
+            <span class="pill" id="quickTag"></span>
+            <span class="quick-view__size muted" id="quickSize"></span>
+          </div>
+        </div>
+
+        <p class="quick-view__desc" id="quickDesc"></p>
+        <div class="quick-view__price" id="quickPrice">KES 0</div>
+
+        <div class="quick-view__actions">
+          <div class="qty-control" aria-label="Quantity selector">
+            <button type="button" class="qty-control__btn" id="quickQtyMinus">−</button>
+            <span class="qty-control__value" id="quickQtyValue">1</span>
+            <button type="button" class="qty-control__btn" id="quickQtyPlus">+</button>
+          </div>
+
+          <button class="btn btn--primary" id="quickAddToCartBtn" type="button">
+            <i data-lucide="plus" style="width:16px;height:16px;"></i>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================
+     Cart Modal
+========================= -->
+<div class="modal" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+  <div class="modal__overlay" id="cartOverlay"></div>
+
+  <div class="modal__panel">
+    <div class="modal__header">
+      <div class="modal__header-text">
+        <h3 id="cartTitle">Order Preview</h3>
+        <p class="modal__subtext">Review your items, then send the order via WhatsApp.</p>
+      </div>
+
+      <button class="modal__close" id="cartCloseBtn" aria-label="Close cart">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+    </div>
+
+    <div class="modal__body" id="cartItemsContainer">
+      <!-- cart items render here -->
+    </div>
+
+    <div class="modal__footer">
+      <div class="total-row">
+        <span>Total</span>
+        <span id="cartTotal">KES 0</span>
+      </div>
+
+      <div class="checkout-wrap">
+        <button class="btn btn--accent" id="checkoutBtn" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.52 3.48A11.91 11.91 0 0012.03 0C5.4 0 .05 5.36.05 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.62A11.94 11.94 0 0012.03 24c6.63 0 12-5.36 12-12 0-3.2-1.25-6.2-3.51-8.52zM12.03 21.8c-1.8 0-3.55-.48-5.08-1.39l-.36-.21-3.66.96.98-3.56-.24-.37a9.73 9.73 0 01-1.5-5.23c0-5.38 4.38-9.75 9.76-9.75 2.61 0 5.07 1.02 6.91 2.86a9.72 9.72 0 012.85 6.89c0 5.38-4.37 9.75-9.76 9.75zm5.35-7.28c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.14-.2.29-.76.95-.94 1.15-.17.2-.35.22-.64.07-.29-.14-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.53.15-.18.2-.3.29-.5.1-.2.05-.37-.02-.52-.07-.14-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.51l-.56-.01c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.49 1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.1 4.49.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.97-1.37.24-.66.24-1.22.17-1.34-.07-.12-.27-.2-.56-.34z"/>
+          </svg>
+          Send Order via WhatsApp
+          <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+<!-- =========================
+     Footer (Products Page)
+========================= -->
+<footer class="footer" aria-label="Footer contact information">
+  <div class="footer__inner">
+    <div class="footer__intro">
+      <h3 class="footer__title">GasLink Contact</h3>
+      <p class="footer__subtitle">
+        Reliable cylinder delivery • Refills • Exchanges
+      </p>
+    </div>
+
+    <div class="footer__grid">
+      <div class="footer-item">
+        <strong>Phone</strong>
+        <span>+254 700 123 456</span>
+      </div>
+
+      <div class="footer-item">
+        <strong>Email</strong>
+        <span>support@gaslink.example</span>
+      </div>
+
+      <div class="footer-item">
+        <strong>Address</strong>
+        <span>Industrial Area, Nairobi, Kenya</span>
+      </div>
+
+      <div class="footer-item">
+        <strong>Working Hours</strong>
+        <span>Mon–Sat: 8:00am – 7:00pm • Sun: 9:00am – 2:00pm</span>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script>
+  lucide.createIcons();
+
+  /* =========================
+     Part 2: Mobile Drawer Logic
+  ========================= */
+  const mobileNavBtn = document.getElementById("mobileNavBtn");
+  const mobileFilterBtn = document.getElementById("mobileFilterBtn");
+  const mobileNavDrawer = document.getElementById("mobileNavDrawer");
+  const mobileFilterDrawer = document.getElementById("mobileFilterDrawer");
+  const mobileNavClose = document.getElementById("mobileNavClose");
+  const mobileFilterClose = document.getElementById("mobileFilterClose");
+  const drawerOverlay = document.getElementById("drawerOverlay");
+
+  function closeDrawers() {
+    mobileNavDrawer.classList.remove("is-open");
+    mobileFilterDrawer.classList.remove("is-open");
+    drawerOverlay.classList.remove("is-open");
+  }
+
+  function openNavDrawer() {
+    mobileNavDrawer.classList.add("is-open");
+    mobileFilterDrawer.classList.remove("is-open");
+    drawerOverlay.classList.add("is-open");
+  }
+
+  function openFilterDrawer() {
+    mobileFilterDrawer.classList.add("is-open");
+    mobileNavDrawer.classList.remove("is-open");
+    drawerOverlay.classList.add("is-open");
+  }
+
+  if (mobileNavBtn) mobileNavBtn.addEventListener("click", openNavDrawer);
+  if (mobileFilterBtn) mobileFilterBtn.addEventListener("click", openFilterDrawer);
+  if (mobileNavClose) mobileNavClose.addEventListener("click", closeDrawers);
+  if (mobileFilterClose) mobileFilterClose.addEventListener("click", closeDrawers);
+  if (drawerOverlay) drawerOverlay.addEventListener("click", closeDrawers);
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeDrawers();
+      closeQuickModal();
+      closeCart();
+    }
+  });
+
+  /* =========================
+     Desktop Filter Collapse Toggle
+  ========================= */
+  const desktopFilterToggle = document.getElementById("desktopFilterToggle");
+  const desktopFilterSidebar = document.getElementById("desktopFilterSidebar");
+
+  function updateDesktopFilterToggleState() {
+    if (!desktopFilterToggle) return;
+
+    const collapsed = document.body.classList.contains("filters-collapsed");
+    desktopFilterToggle.setAttribute("aria-expanded", String(!collapsed));
+
+    const iconName = collapsed ? "panel-left-open" : "panel-left-close";
+    const label = collapsed ? "Show Filters" : "Hide Filters";
+
+    desktopFilterToggle.innerHTML = `
+      <i data-lucide="${iconName}" style="width:18px;height:18px;"></i>
+      ${label}
+    `;
+
+    lucide.createIcons();
+  }
+
+  if (desktopFilterToggle && desktopFilterSidebar) {
+    desktopFilterToggle.addEventListener("click", () => {
+      document.body.classList.toggle("filters-collapsed");
+      updateDesktopFilterToggleState();
+    });
+
+    updateDesktopFilterToggleState();
+  }
+
+  /* =========================
+     Part 4: Filter / Sort / Search
+  ========================= */
+  const productsGrid = document.getElementById("productsGrid");
+  const allCards = Array.from(productsGrid.querySelectorAll(".product-card"));
+  const resultCount = document.getElementById("resultCount");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const sortSelect = document.getElementById("sortSelect");
+
+  const categoryOptions = document.getElementById("categoryOptions");
+  const sizeOptions = document.getElementById("sizeOptions");
+  const brandOptions = document.getElementById("brandOptions");
+
+  const mobileCategoryOptions = document.getElementById("mobileCategoryOptions");
+  const mobileSizeOptions = document.getElementById("mobileSizeOptions");
+  const mobileBrandOptions = document.getElementById("mobileBrandOptions");
+
+  const priceMinInput = document.getElementById("priceMin");
+  const priceMaxInput = document.getElementById("priceMax");
+  const filterSearchInput = document.getElementById("filterSearch");
+
+  const mobilePriceMinInput = document.getElementById("mobilePriceMin");
+  const mobilePriceMaxInput = document.getElementById("mobilePriceMax");
+  const mobileFilterSearchInput = document.getElementById("mobileFilterSearch");
+
+  const quickSearchInput = document.getElementById("quickSearch");
+  const clearQuickSearchBtn = document.getElementById("clearQuickSearch");
+  const resetFiltersBtn = document.getElementById("resetFilters");
+  const applyFiltersBtn = document.getElementById("applyFilters");
+  const mobileResetFiltersBtn = document.getElementById("mobileResetFilters");
+  const mobileApplyFiltersBtn = document.getElementById("mobileApplyFilters");
+
+  const FILTERS = {
+    categories: new Set(),
+    sizes: new Set(),
+    brands: new Set(),
+    priceMin: null,
+    priceMax: null,
+    search: ""
+  };
+
+  let currentPage = 1;
+  const PER_PAGE = 6;
+
+  function getUniqueDataValues(attr) {
+    const values = new Set();
+
+    allCards.forEach((card) => {
+      const value = (card.dataset[attr] || "").trim();
+      if (value) values.add(value);
+    });
+
+    return Array.from(values).sort((a, b) => a.localeCompare(b));
+  }
+
+  function createChip(label, type, value) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "chip";
+    button.textContent = label;
+    button.dataset.filterType = type;
+    button.dataset.filterValue = value;
+    return button;
+  }
+
+  function buildFilterChips() {
+    const categories = getUniqueDataValues("category");
+    const sizes = getUniqueDataValues("size");
+    const brands = getUniqueDataValues("brand");
+
+    categoryOptions.innerHTML = "";
+    sizeOptions.innerHTML = "";
+    brandOptions.innerHTML = "";
+
+    mobileCategoryOptions.innerHTML = "";
+    mobileSizeOptions.innerHTML = "";
+    mobileBrandOptions.innerHTML = "";
+
+    categories.forEach((value) => {
+      categoryOptions.appendChild(createChip(value, "category", value));
+      mobileCategoryOptions.appendChild(createChip(value, "category", value));
+    });
+
+    sizes.forEach((value) => {
+      sizeOptions.appendChild(createChip(value, "size", value));
+      mobileSizeOptions.appendChild(createChip(value, "size", value));
+    });
+
+    brands.forEach((value) => {
+      brandOptions.appendChild(createChip(value, "brand", value));
+      mobileBrandOptions.appendChild(createChip(value, "brand", value));
+    });
+  }
+
+  function syncFilterChipStates() {
+    document.querySelectorAll("[data-filter-type]").forEach((chip) => {
+      const type = chip.dataset.filterType;
+      const value = chip.dataset.filterValue;
+
+      let active = false;
+
+      if (type === "category") active = FILTERS.categories.has(value);
+      if (type === "size") active = FILTERS.sizes.has(value);
+      if (type === "brand") active = FILTERS.brands.has(value);
+
+      chip.classList.toggle("is-active", active);
+    });
+  }
+
+  function syncFilterInputs() {
+    priceMinInput.value = FILTERS.priceMin ?? "";
+    priceMaxInput.value = FILTERS.priceMax ?? "";
+    filterSearchInput.value = FILTERS.search;
+
+    mobilePriceMinInput.value = FILTERS.priceMin ?? "";
+    mobilePriceMaxInput.value = FILTERS.priceMax ?? "";
+    mobileFilterSearchInput.value = FILTERS.search;
+  }
+
+  function parseCardData(card) {
+    return {
+      element: card,
+      id: Number(card.dataset.productId || 0),
+      category: (card.dataset.category || "").trim(),
+      size: (card.dataset.size || "").trim(),
+      brand: (card.dataset.brand || "").trim(),
+      tag: (card.dataset.tag || "").trim(),
+      price: Number(card.dataset.price || 0),
+      name: (card.querySelector(".product-card__name")?.textContent || "").trim(),
+      desc: (card.querySelector(".product-card__desc, .product-card__hidden-desc")?.textContent || "").trim()
+    };
+  }
+
+  function getCombinedSearch() {
+    const quick = (quickSearchInput.value || "").trim().toLowerCase();
+    const sidebarSearch = (filterSearchInput.value || mobileFilterSearchInput.value || FILTERS.search || "").trim().toLowerCase();
+    return `${sidebarSearch} ${quick}`.trim();
+  }
+
+  function matchesFilters(product) {
+    const combinedSearch = getCombinedSearch();
+
+    if (FILTERS.categories.size && !FILTERS.categories.has(product.category)) return false;
+    if (FILTERS.sizes.size && !FILTERS.sizes.has(product.size)) return false;
+    if (FILTERS.brands.size && !FILTERS.brands.has(product.brand)) return false;
+    if (FILTERS.priceMin !== null && product.price < FILTERS.priceMin) return false;
+    if (FILTERS.priceMax !== null && product.price > FILTERS.priceMax) return false;
+
+    if (combinedSearch) {
+      const haystack = `${product.name} ${product.brand} ${product.category} ${product.tag} ${product.desc}`.toLowerCase();
+      if (!haystack.includes(combinedSearch)) return false;
+    }
+
+    return true;
+  }
+
+  function sortProducts(products) {
+    const sortValue = sortSelect.value;
+
+    if (sortValue === "price_asc") {
+      products.sort((a, b) => a.price - b.price);
+      return;
+    }
+
+    if (sortValue === "price_desc") {
+      products.sort((a, b) => b.price - a.price);
+      return;
+    }
+
+    if (sortValue === "newest") {
+      products.sort((a, b) => b.id - a.id);
+      return;
+    }
+
+    products.sort((a, b) => {
+      const tagPriority = {
+        "Popular": 4,
+        "Best Value": 3,
+        "Reliable": 3,
+        "Wholesale": 2,
+        "Bulk": 2,
+        "Budget": 1,
+        "Value": 1
+      };
+
+      const aScore = tagPriority[a.tag] || 0;
+      const bScore = tagPriority[b.tag] || 0;
+
+      if (aScore !== bScore) return bScore - aScore;
+      return a.name.localeCompare(b.name);
+    });
+  }
+
+  function applyFiltersAndRender() {
+    const products = allCards.map(parseCardData).filter(matchesFilters);
+    sortProducts(products);
+
+    allCards.forEach((card) => {
+      card.classList.add("is-hidden");
+      card.style.order = "";
+    });
+
+    const visibleCount = products.length;
+    resultCount.textContent = `${visibleCount} item${visibleCount === 1 ? "" : "s"}`;
+
+    const limit = currentPage * PER_PAGE;
+    const visibleProducts = products.slice(0, limit);
+
+    visibleProducts.forEach((product, index) => {
+      product.element.classList.remove("is-hidden");
+      product.element.style.order = index;
+    });
+
+    loadMoreBtn.style.display = visibleProducts.length >= visibleCount ? "none" : "inline-flex";
+  }
+
+  function resetAllFilters() {
+    FILTERS.categories.clear();
+    FILTERS.sizes.clear();
+    FILTERS.brands.clear();
+    FILTERS.priceMin = null;
+    FILTERS.priceMax = null;
+    FILTERS.search = "";
+
+    quickSearchInput.value = "";
+    currentPage = 1;
+
+    syncFilterChipStates();
+    syncFilterInputs();
+    applyFiltersAndRender();
+  }
+
+  document.addEventListener("click", (event) => {
+    const chip = event.target.closest("[data-filter-type]");
+    if (!chip) return;
+
+    const type = chip.dataset.filterType;
+    const value = chip.dataset.filterValue;
+
+    if (type === "category") {
+      FILTERS.categories.has(value) ? FILTERS.categories.delete(value) : FILTERS.categories.add(value);
+    }
+
+    if (type === "size") {
+      FILTERS.sizes.has(value) ? FILTERS.sizes.delete(value) : FILTERS.sizes.add(value);
+    }
+
+    if (type === "brand") {
+      FILTERS.brands.has(value) ? FILTERS.brands.delete(value) : FILTERS.brands.add(value);
+    }
+
+    currentPage = 1;
+    syncFilterChipStates();
+    applyFiltersAndRender();
+  });
+
+  function syncSidebarAndMobileInputs() {
+    const sidebarMin = priceMinInput.value.trim();
+    const sidebarMax = priceMaxInput.value.trim();
+    const sidebarSearch = filterSearchInput.value.trim();
+
+    const mobileMin = mobilePriceMinInput.value.trim();
+    const mobileMax = mobilePriceMaxInput.value.trim();
+    const mobileSearch = mobileFilterSearchInput.value.trim();
+
+    FILTERS.priceMin = mobileMin !== "" ? Number(mobileMin) : (sidebarMin !== "" ? Number(sidebarMin) : null);
+    FILTERS.priceMax = mobileMax !== "" ? Number(mobileMax) : (sidebarMax !== "" ? Number(sidebarMax) : null);
+    FILTERS.search = mobileSearch || sidebarSearch || "";
+
+    syncFilterInputs();
+  }
+
+  applyFiltersBtn.addEventListener("click", () => {
+    currentPage = 1;
+    syncSidebarAndMobileInputs();
+    applyFiltersAndRender();
+  });
+
+  mobileApplyFiltersBtn.addEventListener("click", () => {
+    currentPage = 1;
+    syncSidebarAndMobileInputs();
+    applyFiltersAndRender();
+    closeDrawers();
+  });
+
+  resetFiltersBtn.addEventListener("click", resetAllFilters);
+
+  mobileResetFiltersBtn.addEventListener("click", () => {
+    resetAllFilters();
+    closeDrawers();
+  });
+
+  clearQuickSearchBtn.addEventListener("click", () => {
+    quickSearchInput.value = "";
+    currentPage = 1;
+    applyFiltersAndRender();
+  });
+
+  quickSearchInput.addEventListener("input", () => {
+    currentPage = 1;
+    applyFiltersAndRender();
+  });
+
+  filterSearchInput.addEventListener("input", () => {
+    FILTERS.search = filterSearchInput.value.trim();
+    mobileFilterSearchInput.value = FILTERS.search;
+    currentPage = 1;
+    applyFiltersAndRender();
+  });
+
+  mobileFilterSearchInput.addEventListener("input", () => {
+    FILTERS.search = mobileFilterSearchInput.value.trim();
+    filterSearchInput.value = FILTERS.search;
+    currentPage = 1;
+    applyFiltersAndRender();
+  });
+
+  sortSelect.addEventListener("change", () => {
+    currentPage = 1;
+    applyFiltersAndRender();
+  });
+
+  loadMoreBtn.addEventListener("click", () => {
+    currentPage += 1;
+    applyFiltersAndRender();
+  });
+
+  /* =========================
+     Part 5: Shared Cart Integration
+  ========================= */
+  const CART_KEY = "gaslink_cart_v1"; // same as homepage
+  const cartBtn = document.getElementById("cartBtn");
+  const cartBadge = document.getElementById("cartBadge");
+
+  function loadCart() {
+    try {
+      const raw = localStorage.getItem(CART_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveCart(nextCart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(nextCart));
+  }
+
+  let cart = loadCart();
+
+  function getCartQty() {
+    return cart.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
+  function moneyKES(value) {
+    const amount = Math.round(Number(value) || 0);
+    return "KES " + amount.toLocaleString("en-US");
+  }
+
+  function cartTotal() {
+    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }
+
+  function getProductCardData(card) {
+    if (!card) return null;
+
+    const id = Number(card.dataset.productId);
+    const brand = card.dataset.brand || "";
+    const size = card.dataset.size || "";
+    const tag = card.dataset.tag || "";
+    const category = card.dataset.category || "";
+    const price = Number(card.dataset.price || 0);
+    const name = card.querySelector(".product-card__name")?.textContent?.trim() || "";
+    const desc =
+      card.querySelector(".product-card__hidden-desc")?.textContent?.trim() ||
+      card.querySelector(".product-card__desc")?.textContent?.trim() ||
+      "";
+    const image =
+      card.querySelector(".product-card__img")?.getAttribute("src") || "";
+
+    if (!id || !name || !price) return null;
+
+    return { id, name, brand, size, tag, category, price, desc, image };
+  }
+
+  function upsertCart(product, qty = 1) {
+    const existing = cart.find((item) => item.id === product.id);
+
+    if (existing) {
+      existing.quantity += qty;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: qty
+      });
+    }
+
+    saveCart(cart);
+    refreshCartUI();
+  }
+
+  function removeItem(id) {
+    cart = cart.filter((item) => item.id !== id);
+    saveCart(cart);
+    refreshCartUI();
+  }
+
+  function updateCartBadge() {
+    cartBadge.textContent = getCartQty();
+  }
+
+  /* =========================
+     Quick View Modal
+  ========================= */
+  const quickModal = document.getElementById("quickModal");
+  const quickOverlay = document.getElementById("quickOverlay");
+  const quickCloseBtn = document.getElementById("quickCloseBtn");
+  const quickImage = document.getElementById("quickImage");
+  const quickBrand = document.getElementById("quickBrand");
+  const quickName = document.getElementById("quickName");
+  const quickTag = document.getElementById("quickTag");
+  const quickSize = document.getElementById("quickSize");
+  const quickDesc = document.getElementById("quickDesc");
+  const quickPrice = document.getElementById("quickPrice");
+  const quickQtyMinus = document.getElementById("quickQtyMinus");
+  const quickQtyPlus = document.getElementById("quickQtyPlus");
+  const quickQtyValue = document.getElementById("quickQtyValue");
+  const quickAddToCartBtn = document.getElementById("quickAddToCartBtn");
+
+  let activeQuickProduct = null;
+  let activeQuickQty = 1;
+
+  function openQuickModal(product) {
+    activeQuickProduct = product;
+    activeQuickQty = 1;
+
+    quickImage.src = product.image;
+    quickImage.alt = product.name;
+    quickBrand.textContent = product.brand;
+    quickName.textContent = product.name;
+    quickTag.textContent = product.tag || "Cylinder";
+    quickSize.textContent = product.size || "";
+    quickDesc.textContent = product.desc;
+    quickPrice.textContent = moneyKES(product.price);
+    quickQtyValue.textContent = activeQuickQty;
+
+    quickModal.classList.add("is-open");
+  }
+
+  function closeQuickModal() {
+    quickModal.classList.remove("is-open");
+    activeQuickProduct = null;
+    activeQuickQty = 1;
+  }
+
+  quickCloseBtn.addEventListener("click", closeQuickModal);
+  quickOverlay.addEventListener("click", closeQuickModal);
+
+  quickQtyMinus.addEventListener("click", () => {
+    activeQuickQty = Math.max(1, activeQuickQty - 1);
+    quickQtyValue.textContent = activeQuickQty;
+  });
+
+  quickQtyPlus.addEventListener("click", () => {
+    activeQuickQty += 1;
+    quickQtyValue.textContent = activeQuickQty;
+  });
+
+  quickAddToCartBtn.addEventListener("click", () => {
+    if (!activeQuickProduct) return;
+    upsertCart(activeQuickProduct, activeQuickQty);
+    closeQuickModal();
+  });
+
+  /* =========================
+     Cart Modal
+  ========================= */
+  const cartModal = document.getElementById("cartModal");
+  const cartOverlay = document.getElementById("cartOverlay");
+  const cartCloseBtn = document.getElementById("cartCloseBtn");
+  const cartItemsContainer = document.getElementById("cartItemsContainer");
+  const cartTotalEl = document.getElementById("cartTotal");
+  const checkoutBtn = document.getElementById("checkoutBtn");
+
+  function syncCheckoutButtonState() {
+    const hasItems = cart.length > 0;
+    checkoutBtn.disabled = !hasItems;
+    checkoutBtn.setAttribute("aria-disabled", String(!hasItems));
+  }
+
+  function renderCartModal() {
+    cartTotalEl.textContent = moneyKES(cartTotal());
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = `
+        <div class="cart-empty">
+          Your cart is empty. Add a cylinder to get started.
+        </div>
+      `;
+      syncCheckoutButtonState();
+      return;
+    }
+
+    cartItemsContainer.innerHTML = "";
+
+    cart.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "cart-item";
+
+      row.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <div>
+          <p class="cart-item__name">${item.name}</p>
+          <p class="cart-item__meta">Unit: ${moneyKES(item.price)}</p>
+          <div class="qty-row">
+            <span class="qty">Qty: ${item.quantity}</span>
+            <span style="font-weight:1000; color: var(--secondary);">
+              ${moneyKES(item.price * item.quantity)}
+            </span>
+          </div>
+        </div>
+        <div>
+          <button class="remove-btn" type="button" data-remove-id="${item.id}">
+            Remove
+          </button>
+        </div>
+      `;
+
+      cartItemsContainer.appendChild(row);
+    });
+
+    syncCheckoutButtonState();
+  }
+
+  function openCart() {
+    renderCartModal();
+    cartModal.classList.add("is-open");
+  }
+
+  function closeCart() {
+    cartModal.classList.remove("is-open");
+  }
+
+  cartBtn.addEventListener("click", openCart);
+  cartCloseBtn.addEventListener("click", closeCart);
+  cartOverlay.addEventListener("click", closeCart);
+
+  cartItemsContainer.addEventListener("click", (event) => {
+    const removeBtn = event.target.closest("[data-remove-id]");
+    if (!removeBtn) return;
+
+    const id = Number(removeBtn.getAttribute("data-remove-id"));
+    removeItem(id);
+  });
+
+  /* shared cart links */
+  const sidebarCartLink = document.getElementById("sidebarCartLink");
+  const mobileDrawerCartLink = document.getElementById("mobileDrawerCartLink");
+
+  if (sidebarCartLink) {
+    sidebarCartLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      openCart();
+    });
+  }
+
+  if (mobileDrawerCartLink) {
+    mobileDrawerCartLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      closeDrawers();
+      openCart();
+    });
+  }
+
+  /* product card actions */
+  productsGrid.addEventListener("click", (event) => {
+    const quickBtn = event.target.closest("[data-quick-view]");
+    const addBtn = event.target.closest("[data-add-to-cart]");
+
+    if (quickBtn) {
+      const card = quickBtn.closest(".product-card");
+      const product = getProductCardData(card);
+      if (product) openQuickModal(product);
+      return;
+    }
+
+    if (addBtn) {
+      const card = addBtn.closest(".product-card");
+      const product = getProductCardData(card);
+      if (product) upsertCart(product, 1);
+    }
+  });
+
+  /* WhatsApp checkout */
+  const WHATSAPP_NUMBER = "254754238950"; // use same business number as home page
+
+  function buildWhatsAppMessage() {
+    if (cart.length === 0) return "";
+
+    const lines = [
+      "Hello GasLink, I want to place this order:",
+      ""
+    ];
+
+    cart.forEach((item, index) => {
+      const subtotal = item.price * item.quantity;
+      lines.push(`${index + 1}. ${item.name} x${item.quantity} - ${moneyKES(subtotal)}`);
+    });
+
+    lines.push("");
+    lines.push(`Total: ${moneyKES(cartTotal())}`);
+    lines.push("");
+    lines.push("Please confirm delivery.");
+    lines.push("Thank you.");
+
+    return lines.join("\n");
+  }
+
+  function openWhatsAppCheckout() {
+    if (cart.length === 0) return;
+
+    const message = buildWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  }
+
+  checkoutBtn.addEventListener("click", openWhatsAppCheckout);
+
+  function refreshCartUI() {
+    updateCartBadge();
+    renderCartModal();
+  }
+
+  buildFilterChips();
+  syncFilterChipStates();
+  syncFilterInputs();
+  applyFiltersAndRender();
+  refreshCartUI();
+</script>
+</body>
+
+</html>

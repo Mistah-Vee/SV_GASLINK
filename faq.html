@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GasLink | FAQ & About</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+  --primary: #FF6B00;
+  --secondary: #0A2540;
+  --accent: #FFC107;
+  --background: #F5F7FA;
+  --text: #1A1A1A;
+  --border: #E0E0E0;
+
+  --radius: 14px;
+  --radius-lg: 18px;
+  --shadow: 0 10px 30px rgba(10, 37, 64, 0.12);
+  --shadow-soft: 0 6px 18px rgba(10, 37, 64, 0.10);
+
+  --container: 1180px;
+  --nav-h: 64px;
+
+  --transition: 180ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--nav-h);
+  background: rgba(245, 247, 250, 0.78);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(224, 224, 224, 0.55);
+}
+
+.nav__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.nav__left,
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.brand__logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255, 107, 0, 0.14);
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand__name {
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 16px;
+  line-height: 1.1;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link {
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: rgba(10, 37, 64, 0.92);
+  font-weight: 600;
+  font-size: 13px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  background: rgba(255, 107, 0, 0.10);
+  color: var(--secondary);
+}
+
+.content {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 22px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 22px;
+}
+
+.page-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.page-hero__content h1 {
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.4px;
+  color: var(--secondary);
+}
+
+.page-hero__text {
+  margin: 10px 0 0;
+  max-width: 55ch;
+  color: rgba(10, 37, 64, 0.82);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-hero__art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-hero__icon-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: rgba(255, 107, 0, 0.12);
+  border: 1px solid rgba(255, 107, 0, 0.22);
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .page-hero__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav__right {
+    display: none;
+  }
+
+  .content {
+    padding: 18px 12px 42px;
+  }
+
+  .page-hero {
+    padding: 22px 16px;
+  }
+}
+
+/* =========================
+   FAQ Step 2: Accordion
+========================= */
+.section-title--faq {
+  margin-bottom: 8px;
+}
+
+.section-title--faq h2 {
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+  color: var(--secondary);
+}
+
+.section-title--faq p {
+  margin: 6px 0 0;
+  color: rgba(10, 37, 64, 0.72);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.faq-section {
+  padding: 18px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.faq-item {
+  border-radius: 18px;
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.74));
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.faq-item:hover {
+  border-color: rgba(255, 107, 0, 0.24);
+  box-shadow: 0 12px 30px rgba(10, 37, 64, 0.08);
+}
+
+.faq-question {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+  color: var(--secondary);
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.faq-question span {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.faq-icon {
+  flex: 0 0 auto;
+  transition: transform var(--transition);
+}
+
+.faq-item.is-open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 220ms ease;
+}
+
+.faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer__inner {
+  overflow: hidden;
+  padding: 0 18px 0;
+  color: rgba(10, 37, 64, 0.80);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.faq-item.is-open .faq-answer__inner {
+  padding-bottom: 18px;
+}
+
+@media (min-width: 768px) {
+  .faq-section {
+    padding: 20px;
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 14px;
+  }
+
+  .faq-answer__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-section {
+    padding: 16px;
+  }
+
+  .faq-question {
+    padding: 16px;
+  }
+
+  .faq-answer__inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* =========================
+   FAQ Step 3: Help / Contact CTA
+========================= */
+.btn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 14px;
+  padding: 11px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 10px 22px rgba(255, 107, 0, 0.25);
+}
+
+.btn--primary:hover {
+  background: #ff7a1f;
+  box-shadow: 0 14px 28px rgba(255, 107, 0, 0.30);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(224, 224, 224, 0.95);
+  color: var(--secondary);
+}
+
+.btn--ghost:hover {
+  border-color: rgba(255, 107, 0, 0.35);
+  background: rgba(255, 255, 255, 1);
+}
+
+.help-cta {
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.help-cta__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.help-cta__content h2 {
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  color: var(--secondary);
+}
+
+.help-cta__text {
+  margin: 10px 0 0;
+  color: rgba(10, 37, 64, 0.80);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 52ch;
+}
+
+.help-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.help-cta__meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.help-cta__info-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.help-cta__info-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+.help-cta__info-card span {
+  color: rgba(10, 37, 64, 0.80);
+  font-weight: 650;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .help-cta {
+    padding: 22px;
+  }
+
+  .help-cta__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-cta {
+    padding: 16px;
+  }
+
+  .help-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .help-cta__actions .btn {
+    width: 100%;
+  }
+}
+/* =========================
+   FAQ Step 4: Footer + Final Polish
+========================= */
+.footer {
+  margin-top: auto;
+  padding: 28px 16px 40px;
+  border-top: 1px solid rgba(224, 224, 224, 0.7);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.footer__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__title {
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--secondary);
+}
+
+.footer__subtitle {
+  margin: 0;
+  color: rgba(10, 37, 64, 0.66);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.footer-item {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.footer-item strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+.footer-item span {
+  color: rgba(10, 37, 64, 0.80);
+  font-weight: 650;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* page rhythm polish */
+.faq-section,
+.help-cta {
+  margin-top: 2px;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 30px 16px 42px;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 24px 12px 36px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <!-- =========================
+         Top Navigation
+    ========================= -->
+    <header class="nav" role="banner">
+      <div class="nav__inner">
+        <div class="nav__left">
+          <a class="brand" href="./index.html" aria-label="GasLink Home">
+            <span class="brand__logo" aria-hidden="true">
+              <i data-lucide="flame" style="width:20px;height:20px;color:var(--secondary);"></i>
+            </span>
+            <span class="brand__name">GasLink</span>
+          </a>
+        </div>
+
+        <div class="nav__right">
+          <nav class="nav-links" aria-label="Top navigation">
+            <a class="nav-link" href="./index.html">Home</a>
+            <a class="nav-link" href="./order/products.html">Products</a>
+            <a class="nav-link" href="./index.html#products">Order / Refill</a>
+            <a class="nav-link is-active" href="./faq.html">FAQ & About</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+         Page Content
+    ========================= -->
+    <main class="content">
+      <!-- =========================
+           FAQ Hero / Intro
+      ========================= -->
+      <section class="card page-hero">
+        <div class="page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow">FAQ & About</p>
+            <h1>Questions, answers, and support information</h1>
+            <p class="page-hero__text">
+              Find answers about gas refills, delivery, exchanges, pricing, and how ordering works at GasLink.
+            </p>
+          </div>
+
+          <div class="page-hero__art" aria-hidden="true">
+            <div class="page-hero__icon-wrap">
+              <i data-lucide="help-circle" style="width:40px;height:40px;"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ section goes here in the next step -->
+       <!-- =========================
+     FAQ Accordion Section
+========================= -->
+<section class="card faq-section">
+  <div class="section-title section-title--faq">
+    <div>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about orders, delivery, refills, and support.</p>
+    </div>
+  </div>
+
+  <div class="faq-list" id="faqList">
+    <!-- FAQ Item -->
+    <article class="faq-item is-open">
+      <button class="faq-question" type="button" aria-expanded="true">
+        <span>How do I place an order?</span>
+        <i data-lucide="chevron-down" class="faq-icon" style="width:18px;height:18px;"></i>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          Add products to your cart on the home page, review your order in the cart popup, then send the order through WhatsApp for confirmation.
+        </div>
+      </div>
+    </article>
+
+    <!-- FAQ Item -->
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Do you offer gas refills and cylinder exchanges?</span>
+        <i data-lucide="chevron-down" class="faq-icon" style="width:18px;height:18px;"></i>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          Yes. We support standard gas refills, new cylinder purchases, and cylinder exchange services depending on availability and service area.
+        </div>
+      </div>
+    </article>
+
+    <!-- FAQ Item -->
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>How does delivery work?</span>
+        <i data-lucide="chevron-down" class="faq-icon" style="width:18px;height:18px;"></i>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          Once you send your order, our team confirms the details, checks your location, and arranges delivery based on your selected items and urgency.
+        </div>
+      </div>
+    </article>
+
+    <!-- FAQ Item -->
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Can I order through WhatsApp directly?</span>
+        <i data-lucide="chevron-down" class="faq-icon" style="width:18px;height:18px;"></i>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          Yes. The cart is designed to prepare your order preview, and the final checkout button sends your order directly through WhatsApp.
+        </div>
+      </div>
+    </article>
+
+    <!-- FAQ Item -->
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>What areas do you serve?</span>
+        <i data-lucide="chevron-down" class="faq-icon" style="width:18px;height:18px;"></i>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          We currently serve selected locations and continue to expand. Contact us through WhatsApp or phone to confirm whether your area is covered.
+        </div>
+      </div>
+    </article>
+
+    <!-- FAQ Item -->
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>What if I need urgent delivery?</span>
+        <i data-lucide="chevron-down" class="faq-icon" style="width:18px;height:18px;"></i>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          You can use the emergency delivery option or contact us directly on WhatsApp so we can advise you on the fastest available delivery option.
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- =========================
+     Help / Contact CTA
+========================= -->
+<section class="card help-cta">
+  <div class="help-cta__grid">
+    <div class="help-cta__content">
+      <p class="eyebrow">Need More Help?</p>
+      <h2>Still have a question?</h2>
+      <p class="help-cta__text">
+        If you need help with refills, deliveries, exchanges, or service coverage, contact us directly and we’ll guide you quickly.
+      </p>
+
+      <div class="help-cta__actions">
+        <a
+          class="btn btn--primary"
+          href="https://wa.me/254754238950?text=Hello%20GasLink%2C%20I%20need%20help%20with%20my%20order."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+          Chat on WhatsApp
+        </a>
+
+        <a class="btn btn--ghost" href="tel:+254700123456">
+          <i data-lucide="phone" style="width:18px;height:18px;"></i>
+          Call Support
+        </a>
+      </div>
+    </div>
+
+    <div class="help-cta__meta">
+      <div class="help-cta__info-card">
+        <strong>Support Hours</strong>
+        <span>Mon–Sat: 8:00am – 7:00pm</span>
+      </div>
+
+      <div class="help-cta__info-card">
+        <strong>Service Area</strong>
+        <span>Selected locations in and around Nairobi</span>
+      </div>
+
+      <div class="help-cta__info-card">
+        <strong>Quick Help</strong>
+        <span>Refills • Deliveries • Exchanges • Catalog Questions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </main>
+
+    <!-- =========================
+     Footer
+========================= -->
+<footer class="footer" aria-label="Footer contact information">
+  <div class="footer__inner">
+    <div class="footer__intro">
+      <h3 class="footer__title">GasLink Contact</h3>
+      <p class="footer__subtitle">
+        Reliable cylinder delivery • Refills • Exchanges
+      </p>
+    </div>
+
+    <div class="footer__grid">
+      <div class="footer-item">
+        <strong>Phone</strong>
+        <span>+254 700 123 456</span>
+      </div>
+
+      <div class="footer-item">
+        <strong>Email</strong>
+        <span>support@gaslink.example</span>
+      </div>
+
+      <div class="footer-item">
+        <strong>Address</strong>
+        <span>Industrial Area, Nairobi, Kenya</span>
+      </div>
+
+      <div class="footer-item">
+        <strong>Working Hours</strong>
+        <span>Mon–Sat: 8:00am – 7:00pm • Sun: 9:00am – 2:00pm</span>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script>
+  lucide.createIcons();
+
+  /* =========================
+     FAQ Step 2: Accordion Logic
+  ========================= */
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const button = item.querySelector(".faq-question");
+
+    button.addEventListener("click", () => {
+      const isOpen = item.classList.contains("is-open");
+
+      faqItems.forEach((faq) => {
+        faq.classList.remove("is-open");
+        const faqButton = faq.querySelector(".faq-question");
+        if (faqButton) {
+          faqButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      if (!isOpen) {
+        item.classList.add("is-open");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+</script>
+</body>
+</html>

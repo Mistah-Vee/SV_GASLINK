@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SV Gas | Products</title>
+  <meta
+    name="description"
+    content="Browse gas refills, new cylinders, and accessories from SV Gas."
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-secondary: #111827;
+      --surface: rgba(30, 41, 59, 0.88);
+      --surface-solid: #1e293b;
+      --surface-soft: #263449;
+      --card: rgba(30, 41, 59, 0.96);
+      --text: #f8fafc;
+      --text-muted: #cbd5e1;
+      --heading: #ffffff;
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --border: rgba(148, 163, 184, 0.18);
+      --shadow: 0 20px 45px rgba(2, 6, 23, 0.35);
+      --shadow-soft: 0 10px 25px rgba(2, 6, 23, 0.2);
+      --hero-glow: radial-gradient(circle at top right, rgba(249, 115, 22, 0.24), transparent 40%);
+      --announcement-bg: #fb923c;
+      --announcement-text: #111827;
+      --chip-bg: rgba(255, 255, 255, 0.08);
+      --input-bg: rgba(15, 23, 42, 0.45);
+      --footer-bg: #0b1220;
+      --success-soft: rgba(34, 197, 94, 0.13);
+      --warning-soft: rgba(249, 115, 22, 0.14);
+      --container: 1200px;
+      --nav-height: 78px;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --grid-card-width: 270px;
+    }
+
+    body.light-theme {
+      --bg: #f8fafc;
+      --bg-secondary: #eef2f7;
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-solid: #ffffff;
+      --surface-soft: #f8fafc;
+      --card: rgba(255, 255, 255, 0.96);
+      --text: #1f2937;
+      --text-muted: #475569;
+      --heading: #0f172a;
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --accent: #16a34a;
+      --accent-hover: #15803d;
+      --border: rgba(15, 23, 42, 0.08);
+      --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.06);
+      --hero-glow: radial-gradient(circle at top right, rgba(249, 115, 22, 0.12), transparent 45%);
+      --announcement-bg: #fed7aa;
+      --announcement-text: #7c2d12;
+      --chip-bg: rgba(15, 23, 42, 0.05);
+      --input-bg: #ffffff;
+      --footer-bg: #0f172a;
+      --success-soft: rgba(22, 163, 74, 0.08);
+      --warning-soft: rgba(249, 115, 22, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        var(--hero-glow),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-secondary) 100%);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .announcement-bar {
+      background: var(--announcement-bg);
+      color: var(--announcement-text);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .announcement-wrap {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.65rem 0;
+    }
+
+    .announcement-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-weight: 800;
+    }
+
+    .announcement-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.light-theme .site-header {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .nav {
+      min-height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), #f59e0b);
+      color: #fff;
+      box-shadow: 0 12px 20px rgba(249, 115, 22, 0.28);
+      font-size: 1.1rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .theme-toggle,
+    .menu-toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--heading);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .theme-toggle:hover,
+    .menu-toggle:hover {
+      transform: translateY(-2px);
+      background: var(--surface-soft);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.95rem 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--surface-solid);
+      color: var(--heading);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-soft);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      color: var(--heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 999px;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--heading);
+      line-height: 1.12;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    .page-hero {
+      padding: 4.5rem 0 2.4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-copy p {
+      font-size: 1.05rem;
+      max-width: 660px;
+      margin: 1rem 0 1.4rem;
+    }
+
+    .hero-actions,
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .hero-actions {
+      margin-bottom: 1rem;
+    }
+
+    .hero-preview {
+      background: linear-gradient(180deg, var(--card), var(--surface-solid));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+
+    .hero-preview-card {
+      min-height: 150px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .hero-preview-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .filters-panel {
+      margin: 1rem 0 3rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      border-radius: 26px;
+      padding: 1.3rem;
+    }
+
+    .filters-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr) auto;
+      gap: 1rem;
+      align-items: end;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group label {
+      color: var(--heading);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 0.92rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: rgba(249, 115, 22, 0.5);
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+    }
+
+    .section-block {
+      padding: 0 0 4rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-card-width), var(--grid-card-width)));
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    .product-card {
+      width: var(--grid-card-width);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      border-radius: 24px;
+      padding: 1rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(249, 115, 22, 0.32);
+    }
+
+    .product-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--warning-soft);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.38rem 0.72rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .product-visual {
+      height: 190px;
+      border-radius: 18px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .product-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    .product-card h3 {
+      margin-bottom: 0.45rem;
+    }
+
+    .product-card p {
+      margin-bottom: 0.9rem;
+    }
+
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-price strong {
+      font-size: 1.45rem;
+      color: var(--heading);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 1rem 0 1.25rem;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      background: var(--surface);
+      color: var(--heading);
+      border: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .mobile-order-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .filters-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .filters-grid .form-group:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .filters-grid,
+      .hero-preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .filters-top,
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mobile-order-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        width: min(var(--container), calc(100% - 1.2rem));
+      }
+
+      .announcement-bar {
+        font-size: 0.85rem;
+      }
+
+      .logo {
+        font-size: 1.08rem;
+      }
+
+      .logo-icon,
+      .theme-toggle,
+      .menu-toggle {
+        width: 42px;
+        height: 42px;
+      }
+
+      .page-hero {
+        padding-top: 3.5rem;
+      }
+
+      .product-card {
+        width: 100%;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    <div class="container announcement-wrap">
+      <p><i class="fa-solid fa-fire-flame-curved"></i> Refill, new cylinders, and accessories available around your area</p>
+      <div class="announcement-links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
+          <span>SV Gas</span>
+        </a>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <a class="btn btn-secondary" href="index.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back Home
+          </a>
+
+          <a class="btn btn-primary" href="index.html#quick-order">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Order Now
+          </a>
+
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#cylinders">Cylinders</a></li>
+          <li><a href="#accessories">Accessories</a></li>
+          <li><a href="index.html#quick-order">Order Gas</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <div class="mobile-order-actions">
+          <a class="btn btn-primary" href="index.html#quick-order">
+            <i class="fa-solid fa-gas-pump"></i>
+            Start Order
+          </a>
+
+          <button class="btn btn-secondary" id="mobileThemeToggle">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+            Switch Theme
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Products Catalog</span>
+          <h1>Browse Gas Cylinders & Accessories</h1>
+          <p>
+            Filter by brand, size, and product type to quickly find the right refill,
+            new cylinder, or accessory for your hostel, apartment, or home.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#cylinders">
+              <i class="fa-solid fa-fire-flame-curved"></i>
+              View Cylinders
+            </a>
+
+            <a class="btn btn-secondary" href="#accessories">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              View Accessories
+            </a>
+          </div>
+
+          <div class="hero-badges">
+            <span class="chip"><i class="fa-solid fa-filter"></i> Fast filtering</span>
+            <span class="chip"><i class="fa-solid fa-tag"></i> 4 brands available</span>
+            <span class="chip"><i class="fa-solid fa-weight-hanging"></i> 6kg, 13kg & 19kg</span>
+          </div>
+        </div>
+
+        <div class="hero-preview">
+          <div class="hero-preview-grid">
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1616628182509-6f3b5c8a1f84?auto=format&fit=crop&w=800&q=80" alt="Gas cylinder product preview">
+            </div>
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80" alt="Kitchen gas accessory preview">
+            </div>
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1600566752227-8f3b7d1c9f8b?auto=format&fit=crop&w=800&q=80" alt="Cylinder delivery preview">
+            </div>
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Product search and filter preview">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="filters-panel">
+        <div class="filters-top">
+          <div>
+            <span class="eyebrow">Filter Products</span>
+            <h2>Find what you need faster</h2>
+          </div>
+
+          <button class="btn btn-secondary" id="resetFiltersBtn">
+            <i class="fa-solid fa-rotate-left"></i>
+            Reset Filters
+          </button>
+        </div>
+
+        <div class="filters-grid">
+          <div class="form-group">
+            <label for="searchInput">Search</label>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by product name or brand"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="typeFilter">Product Type</label>
+            <select id="typeFilter">
+              <option value="all">All Types</option>
+              <option value="cylinder">Cylinders</option>
+              <option value="accessory">Accessories</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="brandFilter">Brand</label>
+            <select id="brandFilter">
+              <option value="all">All Brands</option>
+              <option value="pro-gas">Pro Gas</option>
+              <option value="k-gas">K-Gas</option>
+              <option value="afrigas">Afrigas</option>
+              <option value="total">Total</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sizeFilter">Size</label>
+            <select id="sizeFilter">
+              <option value="all">All Sizes</option>
+              <option value="6kg">6kg</option>
+              <option value="13kg">13kg</option>
+              <option value="19kg">19kg</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>&nbsp;</label>
+            <a href="index.html#quick-order" class="btn btn-primary">
+              <i class="fa-solid fa-bolt"></i>
+              Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="cylinders">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Cylinder Section</span>
+            <h2>Available Gas Cylinders</h2>
+            <p>Choose from Pro Gas, K-Gas, Afrigas, and Total in 6kg, 13kg, and 19kg sizes.</p>
+          </div>
+
+          <span class="chip"><i class="fa-solid fa-box"></i> 12 cylinder options</span>
+        </div>
+
+        <div class="product-grid" id="cylinderGrid">
+            <!-- PRO GAS -->
+<div class="product-card" data-type="cylinder" data-brand="pro-gas" data-size="6kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">6kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1606813909359-42f0b6b8b6d1?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Pro Gas 6kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Pro Gas</span>
+  </div>
+  <div class="product-price"><strong>KES 1350</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="pro-gas" data-size="13kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">13kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1581091215367-59ab6b4b6f9c?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Pro Gas 13kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Pro Gas</span>
+  </div>
+  <div class="product-price"><strong>KES 2800</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="pro-gas" data-size="19kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">19kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1616628182509-6f3b5c8a1f84?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Pro Gas 19kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Pro Gas</span>
+  </div>
+  <div class="product-price"><strong>KES 4200</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<!-- K-GAS -->
+<div class="product-card" data-type="cylinder" data-brand="k-gas" data-size="6kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">6kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>K-Gas 6kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">K-Gas</span>
+  </div>
+  <div class="product-price"><strong>KES 1400</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="k-gas" data-size="13kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">13kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1604147706283-28b68f63b2e9?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>K-Gas 13kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">K-Gas</span>
+  </div>
+  <div class="product-price"><strong>KES 2850</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="k-gas" data-size="19kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">19kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1581579188871-45ea61f2a2c3?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>K-Gas 19kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">K-Gas</span>
+  </div>
+  <div class="product-price"><strong>KES 4300</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<!-- AFRIGAS -->
+<div class="product-card" data-type="cylinder" data-brand="afrigas" data-size="6kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">6kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1581091870627-3b5f9c1d8cbb?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Afrigas 6kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Afrigas</span>
+  </div>
+  <div class="product-price"><strong>KES 1300</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="afrigas" data-size="13kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">13kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1616628182537-1dc80bd0480c?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Afrigas 13kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Afrigas</span>
+  </div>
+  <div class="product-price"><strong>KES 2750</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="afrigas" data-size="19kg">
+  <div class="product-top">
+    <span class="product-badge">Refill</span>
+    <span class="meta-pill">19kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1606813908849-54a7a3a2b9b1?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Afrigas 19kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Afrigas</span>
+  </div>
+  <div class="product-price"><strong>KES 4100</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<!-- TOTAL -->
+<div class="product-card" data-type="cylinder" data-brand="total" data-size="6kg">
+  <div class="product-top">
+    <span class="product-badge">New</span>
+    <span class="meta-pill">6kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1604147706913-7a2c4c0cb3f5?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Total 6kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Total</span>
+  </div>
+  <div class="product-price"><strong>KES 5700</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="total" data-size="13kg">
+  <div class="product-top">
+    <span class="product-badge">New</span>
+    <span class="meta-pill">13kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1581579185169-3f1f62c6e61f?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Total 13kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Total</span>
+  </div>
+  <div class="product-price"><strong>KES 8500</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+<div class="product-card" data-type="cylinder" data-brand="total" data-size="19kg">
+  <div class="product-top">
+    <span class="product-badge">New</span>
+    <span class="meta-pill">19kg</span>
+  </div>
+  <div class="product-visual">
+    <img src="https://images.unsplash.com/photo-1581093588401-22a0d6d3d4f7?auto=format&fit=crop&w=800&q=80">
+  </div>
+  <h3>Total 19kg Cylinder</h3>
+  <div class="product-meta">
+    <span class="meta-pill">Total</span>
+  </div>
+  <div class="product-price"><strong>KES 11000</strong></div>
+  <div class="card-actions">
+    <a class="btn btn-primary" href="index.html#quick-order">Order</a>
+  </div>
+</div>
+
+</div> <!-- END GRID -->
+</div>
+</section>
+<section class="section-block" id="accessories">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Accessories Section</span>
+        <h2>Gas Accessories</h2>
+        <p>Complete your setup with essential accessories for safe and convenient gas use.</p>
+      </div>
+
+      <span class="chip"><i class="fa-solid fa-screwdriver-wrench"></i> 8 accessories</span>
+    </div>
+
+    <div class="product-grid" id="accessoryGrid">
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Regulator</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80" alt="Gas regulator">
+        </div>
+        <h3>Gas Regulator</h3>
+        <p>Reliable regulator for stable gas flow and safe cylinder connection.</p>
+        <div class="product-price"><strong>KES 1,200</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Hose</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80" alt="Gas hose pipe">
+        </div>
+        <h3>Gas Hose Pipe</h3>
+        <p>Flexible connection hose suitable for everyday domestic gas setups.</p>
+        <div class="product-price"><strong>KES 500</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Single Burner</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1584990347449-a9f6be2d3f5f?auto=format&fit=crop&w=800&q=80" alt="Single burner cooker">
+        </div>
+        <h3>Single Burner</h3>
+        <p>Compact cooker option ideal for bedsitters, hostels, and small kitchens.</p>
+        <div class="product-price"><strong>KES 1,500</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Double Burner</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=800&q=80" alt="Double burner cooker">
+        </div>
+        <h3>Double Burner</h3>
+        <p>Better for larger cooking needs and shared apartments or family spaces.</p>
+        <div class="product-price"><strong>KES 2,500</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Clamp</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Metal clamp accessory">
+        </div>
+        <h3>Hose Clamp</h3>
+        <p>Helps secure the hose connection properly for a safer gas setup.</p>
+        <div class="product-price"><strong>KES 200</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Adapter</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Gas adapter accessory">
+        </div>
+        <h3>Gas Adapter</h3>
+        <p>Useful adapter solution for compatible gas connection needs.</p>
+        <div class="product-price"><strong>KES 300</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Gas Lighter</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80" alt="Gas lighter">
+        </div>
+        <h3>Gas Lighter</h3>
+        <p>Simple lighter tool for faster and easier ignition when cooking.</p>
+        <div class="product-price"><strong>KES 250</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="accessory" data-brand="none" data-size="none">
+        <div class="product-top">
+          <span class="product-badge">Accessory</span>
+          <span class="meta-pill">Clips Set</span>
+        </div>
+        <div class="product-visual">
+          <img src="https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=800&q=80" alt="Hose clips set">
+        </div>
+        <h3>Hose Clips Set</h3>
+        <p>Small but useful clips set to improve hose fastening and support.</p>
+        <div class="product-price"><strong>KES 350</strong></div>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="index.html#contact">Ask About It</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <h3>No products found</h3>
+      <p>Try adjusting your search term or resetting the filters.</p>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer style="background: var(--footer-bg); color: #f8fafc; padding: 4rem 0 1.5rem; margin-top: 1rem;">
+    <div class="container" style="display: grid; gap: 2rem;">
+      <div style="display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.1fr; gap: 2rem;">
+        <div>
+          <a href="index.html" class="logo" style="color: #fff;">
+            <span class="logo-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
+            <span>SV Gas</span>
+          </a>
+          <p style="margin-top: 1rem; color: rgba(248,250,252,0.75); max-width: 320px;">
+            Browse gas cylinders and accessories with quick filtering, clean product cards, and easy ordering.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 1rem;">Quick Links</h4>
+          <div style="display: grid; gap: 0.7rem;">
+            <a href="index.html">Home</a>
+            <a href="#cylinders">Cylinders</a>
+            <a href="#accessories">Accessories</a>
+            <a href="index.html#quick-order">Order Gas</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 1rem;">Brands</h4>
+          <div style="display: grid; gap: 0.7rem;">
+            <span>Pro Gas</span>
+            <span>K-Gas</span>
+            <span>Afrigas</span>
+            <span>Total</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 1rem;">Contact</h4>
+          <div style="display: grid; gap: 0.7rem;">
+            <span><i class="fa-solid fa-phone"></i> +254 712 345 678</span>
+            <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Orders</span>
+            <span><i class="fa-solid fa-envelope"></i> info@svgas.co.ke</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: rgba(248,250,252,0.65);">
+        <p>&copy; 2026 SV Gas. All rights reserved.</p>
+        <p>Built for fast local gas ordering.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const themeToggle = document.getElementById("themeToggle");
+      const mobileThemeToggle = document.getElementById("mobileThemeToggle");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      const searchInput = document.getElementById("searchInput");
+      const typeFilter = document.getElementById("typeFilter");
+      const brandFilter = document.getElementById("brandFilter");
+      const sizeFilter = document.getElementById("sizeFilter");
+      const resetFiltersBtn = document.getElementById("resetFiltersBtn");
+      const emptyState = document.getElementById("emptyState");
+
+      const allProductCards = Array.from(document.querySelectorAll(".product-card"));
+
+      function setTheme(theme) {
+        if (theme === "light") {
+          body.classList.add("light-theme");
+          themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+          if (mobileThemeToggle) {
+            mobileThemeToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Switch to Dark';
+          }
+        } else {
+          body.classList.remove("light-theme");
+          themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+          if (mobileThemeToggle) {
+            mobileThemeToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Switch to Light';
+          }
+        }
+
+        localStorage.setItem("svGasTheme", theme);
+      }
+
+      function applyFilters() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const selectedType = typeFilter.value;
+        const selectedBrand = brandFilter.value;
+        const selectedSize = sizeFilter.value;
+
+        let visibleCount = 0;
+
+        allProductCards.forEach((card) => {
+          const cardText = card.textContent.toLowerCase();
+          const cardType = card.dataset.type;
+          const cardBrand = card.dataset.brand;
+          const cardSize = card.dataset.size;
+
+          const matchesSearch = !searchTerm || cardText.includes(searchTerm);
+          const matchesType = selectedType === "all" || cardType === selectedType;
+          const matchesBrand =
+            selectedBrand === "all" ||
+            selectedType === "accessory" ||
+            cardBrand === selectedBrand;
+          const matchesSize =
+            selectedSize === "all" ||
+            selectedType === "accessory" ||
+            cardSize === selectedSize;
+
+          const shouldShow = matchesSearch && matchesType && matchesBrand && matchesSize;
+
+          card.style.display = shouldShow ? "block" : "none";
+
+          if (shouldShow) {
+            visibleCount++;
+          }
+        });
+
+        emptyState.style.display = visibleCount === 0 ? "block" : "none";
+      }
+
+      function resetFilters() {
+        searchInput.value = "";
+        typeFilter.value = "all";
+        brandFilter.value = "all";
+        sizeFilter.value = "all";
+        applyFilters();
+      }
+
+      const savedTheme = localStorage.getItem("svGasTheme");
+      setTheme(savedTheme || "dark");
+
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = body.classList.contains("light-theme") ? "dark" : "light";
+        setTheme(nextTheme);
+      });
+
+      if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener("click", () => {
+          const nextTheme = body.classList.contains("light-theme") ? "dark" : "light";
+          setTheme(nextTheme);
+        });
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("active");
+          menuToggle.innerHTML = mobileMenu.classList.contains("active")
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+      }
+
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+      });
+
+      [searchInput, typeFilter, brandFilter, sizeFilter].forEach((element) => {
+        element.addEventListener("input", applyFilters);
+        element.addEventListener("change", applyFilters);
+      });
+
+      resetFiltersBtn.addEventListener("click", resetFilters);
+
+      applyFilters();
+    })();
+  </script>
+</body>
+</html>

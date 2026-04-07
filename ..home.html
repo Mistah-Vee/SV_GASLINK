@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SV Gas | Order Gas</title>
+  <meta
+    name="description"
+    content="Place a gas order for refill, new cylinders, or accessories with SV Gas."
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-secondary: #111827;
+      --surface: rgba(30, 41, 59, 0.88);
+      --surface-solid: #1e293b;
+      --surface-soft: #263449;
+      --card: rgba(30, 41, 59, 0.96);
+      --text: #f8fafc;
+      --text-muted: #cbd5e1;
+      --heading: #ffffff;
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --border: rgba(148, 163, 184, 0.18);
+      --shadow: 0 20px 45px rgba(2, 6, 23, 0.35);
+      --shadow-soft: 0 10px 25px rgba(2, 6, 23, 0.2);
+      --hero-glow: radial-gradient(circle at top right, rgba(249, 115, 22, 0.24), transparent 40%);
+      --announcement-bg: #fb923c;
+      --announcement-text: #111827;
+      --chip-bg: rgba(255, 255, 255, 0.08);
+      --input-bg: rgba(15, 23, 42, 0.45);
+      --footer-bg: #0b1220;
+      --success-soft: rgba(34, 197, 94, 0.13);
+      --warning-soft: rgba(249, 115, 22, 0.14);
+      --danger-soft: rgba(239, 68, 68, 0.12);
+      --container: 1200px;
+      --nav-height: 78px;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+    }
+
+    body.light-theme {
+      --bg: #f8fafc;
+      --bg-secondary: #eef2f7;
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-solid: #ffffff;
+      --surface-soft: #f8fafc;
+      --card: rgba(255, 255, 255, 0.96);
+      --text: #1f2937;
+      --text-muted: #475569;
+      --heading: #0f172a;
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --accent: #16a34a;
+      --accent-hover: #15803d;
+      --border: rgba(15, 23, 42, 0.08);
+      --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.06);
+      --hero-glow: radial-gradient(circle at top right, rgba(249, 115, 22, 0.12), transparent 45%);
+      --announcement-bg: #fed7aa;
+      --announcement-text: #7c2d12;
+      --chip-bg: rgba(15, 23, 42, 0.05);
+      --input-bg: #ffffff;
+      --footer-bg: #0f172a;
+      --success-soft: rgba(22, 163, 74, 0.08);
+      --warning-soft: rgba(249, 115, 22, 0.08);
+      --danger-soft: rgba(239, 68, 68, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        var(--hero-glow),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-secondary) 100%);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .announcement-bar {
+      background: var(--announcement-bg);
+      color: var(--announcement-text);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .announcement-wrap {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.65rem 0;
+    }
+
+    .announcement-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-weight: 800;
+    }
+
+    .announcement-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.light-theme .site-header {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .nav {
+      min-height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), #f59e0b);
+      color: #fff;
+      box-shadow: 0 12px 20px rgba(249, 115, 22, 0.28);
+      font-size: 1.1rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .theme-toggle,
+    .menu-toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--heading);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .theme-toggle:hover,
+    .menu-toggle:hover {
+      transform: translateY(-2px);
+      background: var(--surface-soft);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.95rem 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--surface-solid);
+      color: var(--heading);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-soft);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(34, 197, 94, 0.22);
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-hover);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      color: var(--heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 999px;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--heading);
+      line-height: 1.12;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    .page-hero {
+      padding: 4.5rem 0 2.8rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-copy p {
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .hero-actions,
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .hero-actions {
+      margin-bottom: 1rem;
+    }
+
+    .hero-preview {
+      background: linear-gradient(180deg, var(--card), var(--surface-solid));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+
+    .hero-preview-card {
+      min-height: 155px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .hero-preview-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .order-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem;
+      padding-bottom: 4rem;
+    }
+
+    .form-card,
+    .summary-card,
+    .option-card,
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-card,
+    .summary-card {
+      border-radius: 28px;
+      padding: 1.3rem;
+    }
+
+    .form-section {
+      margin-bottom: 1.35rem;
+    }
+
+    .form-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section-label-row p {
+      max-width: 680px;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .option-card {
+      border-radius: 22px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      position: relative;
+    }
+
+    .option-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(249, 115, 22, 0.28);
+    }
+
+    .option-card.active {
+      border-color: rgba(249, 115, 22, 0.45);
+      box-shadow: 0 14px 26px rgba(249, 115, 22, 0.12);
+      background: linear-gradient(180deg, rgba(249, 115, 22, 0.08), transparent), var(--card);
+    }
+
+    .option-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.08));
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .option-card p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      color: var(--heading);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(249, 115, 22, 0.5);
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+    }
+
+    .inline-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .choice-box {
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1rem;
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      cursor: pointer;
+      transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    }
+
+    .choice-box:hover {
+      transform: translateY(-3px);
+      border-color: rgba(249, 115, 22, 0.28);
+    }
+
+    .choice-box.active {
+      border-color: rgba(34, 197, 94, 0.45);
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.08), transparent), var(--surface-solid);
+    }
+
+    .choice-indicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .choice-box.active .choice-indicator::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .summary-card {
+      position: sticky;
+      top: 104px;
+      align-self: start;
+    }
+
+    .summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .summary-product {
+      padding: 1rem;
+      border-radius: 22px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .summary-product h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--text-muted);
+    }
+
+    .summary-item strong {
+      color: var(--heading);
+    }
+
+    .summary-total {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .summary-total .summary-item strong {
+      font-size: 1.2rem;
+    }
+
+    .stack-actions {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .info-card {
+      border-radius: 22px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .info-card h4 {
+      margin-bottom: 0.45rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 1rem 0 1.25rem;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      background: var(--surface);
+      color: var(--heading);
+      border: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .mobile-order-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .order-layout,
+      .option-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .order-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .hero-preview-grid,
+      .form-grid,
+      .option-grid,
+      .inline-choice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .section-label-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mobile-order-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        width: min(var(--container), calc(100% - 1.2rem));
+      }
+
+      .announcement-bar {
+        font-size: 0.85rem;
+      }
+
+      .logo {
+        font-size: 1.08rem;
+      }
+
+      .logo-icon,
+      .theme-toggle,
+      .menu-toggle {
+        width: 42px;
+        height: 42px;
+      }
+
+      .page-hero {
+        padding-top: 3.5rem;
+      }
+
+      .form-card,
+      .summary-card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    <div class="container announcement-wrap">
+      <p><i class="fa-solid fa-fire-flame-curved"></i> Order refill, new cylinders, and accessories with SV Gas</p>
+      <div class="announcement-links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
+          <span>SV Gas</span>
+        </a>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <a class="btn btn-secondary" href="products.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Products
+          </a>
+
+          <a class="btn btn-primary" href="index.html#contact">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+          </a>
+
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="#order-form">Order Form</a></li>
+          <li><a href="#summary-card">Order Summary</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <div class="mobile-order-actions">
+          <a class="btn btn-primary" href="products.html">
+            <i class="fa-solid fa-box-open"></i>
+            Browse Products
+          </a>
+
+          <button class="btn btn-secondary" id="mobileThemeToggle">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+            Switch Theme
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Order Gas</span>
+          <h1>Place Your Order in a Few Easy Steps</h1>
+          <p>
+            Choose your order type, select your preferred brand and size, enter your delivery details,
+            and review the summary before placing your gas order.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#order-form">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Start Order
+            </a>
+
+            <a class="btn btn-secondary" href="products.html">
+              <i class="fa-solid fa-box-open"></i>
+              View Products
+            </a>
+          </div>
+
+          <div class="hero-badges">
+            <span class="chip"><i class="fa-solid fa-fire-flame-curved"></i> Refill & New Cylinders</span>
+            <span class="chip"><i class="fa-solid fa-truck-fast"></i> Local Delivery</span>
+            <span class="chip"><i class="fa-solid fa-credit-card"></i> Flexible Payment</span>
+          </div>
+        </div>
+
+        <div class="hero-preview">
+          <div class="hero-preview-grid">
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1606813909359-42f0b6b8b6d1?auto=format&fit=crop&w=800&q=80" alt="Gas cylinder preview">
+            </div>
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80" alt="Gas accessories preview">
+            </div>
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1600566752227-8f3b7d1c9f8b?auto=format&fit=crop&w=800&q=80" alt="Delivery preview">
+            </div>
+            <div class="hero-preview-card">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Order process preview">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container order-layout" id="order-form">
+      <div class="form-card">
+        <div class="form-section">
+          <div class="section-label-row">
+            <div>
+              <span class="eyebrow">Step 1</span>
+              <h2>Select Order Type</h2>
+            </div>
+            <p>Choose what you want to order so we can guide the rest of the form properly.</p>
+          </div>
+
+          <div class="option-grid" id="orderTypeOptions">
+            <div class="option-card active" data-order-type="refill">
+              <div class="option-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+              <h3>Refill</h3>
+              <p>For customers who already have a gas cylinder and need a refill.</p>
+            </div>
+
+            <div class="option-card" data-order-type="new-cylinder">
+              <div class="option-icon"><i class="fa-solid fa-bottle-droplet"></i></div>
+              <h3>New Cylinder</h3>
+              <p>For customers who want a complete filled cylinder package.</p>
+            </div>
+
+            <div class="option-card" data-order-type="accessory">
+              <div class="option-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+              <h3>Accessories</h3>
+              <p>Order regulators, hose pipes, burners, clamps, and related items.</p>
+            </div>
+
+            <div class="option-card" data-order-type="bulk">
+              <div class="option-icon"><i class="fa-solid fa-users"></i></div>
+              <h3>Bulk / Hostel Order</h3>
+              <p>For shared housing, hostels, or larger grouped gas supply requests.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-label-row">
+            <div>
+              <span class="eyebrow">Step 2</span>
+              <h2>Product Details</h2>
+            </div>
+            <p>Pick the brand, size, and quantity that match your cooking or household needs.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="productType">Product Category</label>
+              <select id="productType">
+                <option value="cylinder">Cylinder</option>
+                <option value="accessory">Accessory</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="brandSelect">Brand</label>
+              <select id="brandSelect">
+                <option value="Pro Gas">Pro Gas</option>
+                <option value="K-Gas">K-Gas</option>
+                <option value="Afrigas">Afrigas</option>
+                <option value="Total">Total</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="sizeSelect">Cylinder Size</label>
+              <select id="sizeSelect">
+                <option value="6kg">6kg</option>
+                <option value="13kg">13kg</option>
+                <option value="19kg">19kg</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="quantityInput">Quantity</label>
+              <select id="quantityInput">
+                <option value="1">1 Item</option>
+                <option value="2">2 Items</option>
+                <option value="3">3 Items</option>
+                <option value="4">4 Items</option>
+                <option value="5">5 Items</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="notesInput">Extra Product Notes</label>
+              <textarea id="notesInput" rows="3" placeholder="Example: Need hose and regulator included, or prefer a specific cylinder condition"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-label-row">
+            <div>
+              <span class="eyebrow">Step 3</span>
+              <h2>Delivery Details</h2>
+            </div>
+            <p>Tell us where to bring the order and how to reach you.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="Enter your full name" />
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" id="phoneNumber" placeholder="e.g. 0712345678" />
+            </div>
+
+            <div class="form-group">
+              <label for="areaInput">Area / Estate / Hostel</label>
+              <input type="text" id="areaInput" placeholder="Enter your area or hostel name" />
+            </div>
+
+            <div class="form-group">
+              <label for="landmarkInput">Nearest Landmark</label>
+              <input type="text" id="landmarkInput" placeholder="Example: gate, shop, stage, apartment block" />
+            </div>
+
+            <div class="form-group full">
+              <label for="deliveryNotes">Delivery Notes</label>
+              <textarea id="deliveryNotes" rows="3" placeholder="Any delivery instructions we should know?"></textarea>
+            </div>
+          </div>
+        </div>
+                <div class="form-section">
+          <div class="section-label-row">
+            <div>
+              <span class="eyebrow">Step 4</span>
+              <h2>Delivery Method</h2>
+            </div>
+            <p>Choose how quickly you want the order to be delivered.</p>
+          </div>
+
+          <div class="inline-choice-grid" id="deliveryMethodChoices">
+            <div class="choice-box active" data-delivery="standard">
+              <div class="choice-indicator"></div>
+              <div>
+                <h3>Standard Delivery</h3>
+                <p>Regular local delivery based on your area and order queue.</p>
+              </div>
+            </div>
+
+            <div class="choice-box" data-delivery="urgent">
+              <div class="choice-indicator"></div>
+              <div>
+                <h3>Urgent Delivery</h3>
+                <p>Priority handling for more urgent refill or replacement needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-label-row">
+            <div>
+              <span class="eyebrow">Step 5</span>
+              <h2>Payment Method</h2>
+            </div>
+            <p>Select the payment option that works best for you.</p>
+          </div>
+
+          <div class="inline-choice-grid" id="paymentMethodChoices">
+            <div class="choice-box active" data-payment="cash">
+              <div class="choice-indicator"></div>
+              <div>
+                <h3>Cash on Delivery</h3>
+                <p>Pay when your order arrives.</p>
+              </div>
+            </div>
+
+            <div class="choice-box" data-payment="mobile-money">
+              <div class="choice-indicator"></div>
+              <div>
+                <h3>Mobile Money</h3>
+                <p>Use your preferred mobile money option at confirmation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="summary-card" id="summary-card">
+        <div class="summary-top">
+          <div>
+            <span class="eyebrow">Order Summary</span>
+            <h2>Review Before You Place Order</h2>
+          </div>
+          <span class="chip"><i class="fa-solid fa-file-invoice"></i> Live Summary</span>
+        </div>
+
+        <div class="summary-product">
+          <h3 id="summaryProductName">Pro Gas 6kg Cylinder</h3>
+          <p id="summaryProductType">Refill • Cylinder</p>
+        </div>
+
+        <div class="summary-list">
+          <div class="summary-item">
+            <span>Brand</span>
+            <strong id="summaryBrand">Pro Gas</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Size</span>
+            <strong id="summarySize">6kg</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Quantity</span>
+            <strong id="summaryQuantity">1</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Delivery</span>
+            <strong id="summaryDelivery">Standard</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Payment</span>
+            <strong id="summaryPayment">Cash on Delivery</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Subtotal</span>
+            <strong id="summarySubtotal">KES 1,350</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Delivery Fee</span>
+            <strong id="summaryFee">KES 150</strong>
+          </div>
+        </div>
+
+        <div class="summary-total">
+          <div class="summary-item">
+            <span>Total</span>
+            <strong id="summaryTotal">KES 1,500</strong>
+          </div>
+        </div>
+
+        <div class="stack-actions">
+          <button class="btn btn-primary" id="placeOrderBtn">
+            <i class="fa-solid fa-paper-plane"></i>
+            Place Order
+          </button>
+
+          <a class="btn btn-accent" href="index.html#contact">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp Order
+          </a>
+
+          <a class="btn btn-secondary" href="tel:+254712345678">
+            <i class="fa-solid fa-phone"></i>
+            Call to Order
+          </a>
+        </div>
+
+        <div class="info-card">
+          <h4>Quick Note</h4>
+          <p>
+            This page is the frontend ordering experience. Later, it can connect to WhatsApp, email,
+            or a backend order system for real submissions.
+          </p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer style="background: var(--footer-bg); color: #f8fafc; padding: 4rem 0 1.5rem; margin-top: 1rem;">
+    <div class="container" style="display: grid; gap: 2rem;">
+      <div style="display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.1fr; gap: 2rem;">
+        <div>
+          <a href="index.html" class="logo" style="color: #fff;">
+            <span class="logo-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
+            <span>SV Gas</span>
+          </a>
+          <p style="margin-top: 1rem; color: rgba(248,250,252,0.75); max-width: 320px;">
+            Order refill gas, new cylinders, and accessories with a clean, simple local delivery flow.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 1rem;">Quick Links</h4>
+          <div style="display: grid; gap: 0.7rem;">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="#order-form">Order Form</a>
+            <a href="#summary-card">Order Summary</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 1rem;">Order Types</h4>
+          <div style="display: grid; gap: 0.7rem;">
+            <span>Refill</span>
+            <span>New Cylinder</span>
+            <span>Accessories</span>
+            <span>Bulk / Hostel Orders</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 1rem;">Contact</h4>
+          <div style="display: grid; gap: 0.7rem;">
+            <span><i class="fa-solid fa-phone"></i> +254 712 345 678</span>
+            <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Orders</span>
+            <span><i class="fa-solid fa-envelope"></i> info@svgas.co.ke</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: rgba(248,250,252,0.65);">
+        <p>&copy; 2026 SV Gas. All rights reserved.</p>
+        <p>Built for fast local gas ordering.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const themeToggle = document.getElementById("themeToggle");
+      const mobileThemeToggle = document.getElementById("mobileThemeToggle");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      const orderTypeOptions = document.querySelectorAll("#orderTypeOptions .option-card");
+      const deliveryChoices = document.querySelectorAll("#deliveryMethodChoices .choice-box");
+      const paymentChoices = document.querySelectorAll("#paymentMethodChoices .choice-box");
+
+      const productType = document.getElementById("productType");
+      const brandSelect = document.getElementById("brandSelect");
+      const sizeSelect = document.getElementById("sizeSelect");
+      const quantityInput = document.getElementById("quantityInput");
+
+      const summaryProductName = document.getElementById("summaryProductName");
+      const summaryProductType = document.getElementById("summaryProductType");
+      const summaryBrand = document.getElementById("summaryBrand");
+      const summarySize = document.getElementById("summarySize");
+      const summaryQuantity = document.getElementById("summaryQuantity");
+      const summaryDelivery = document.getElementById("summaryDelivery");
+      const summaryPayment = document.getElementById("summaryPayment");
+      const summarySubtotal = document.getElementById("summarySubtotal");
+      const summaryFee = document.getElementById("summaryFee");
+      const summaryTotal = document.getElementById("summaryTotal");
+
+      const fullName = document.getElementById("fullName");
+      const phoneNumber = document.getElementById("phoneNumber");
+      const areaInput = document.getElementById("areaInput");
+      const landmarkInput = document.getElementById("landmarkInput");
+      const notesInput = document.getElementById("notesInput");
+      const deliveryNotes = document.getElementById("deliveryNotes");
+      const placeOrderBtn = document.getElementById("placeOrderBtn");
+
+      let selectedOrderType = "refill";
+      let selectedDelivery = "standard";
+      let selectedPayment = "cash";
+
+      const sizePrices = {
+        refill: { "6kg": 1350, "13kg": 2800, "19kg": 4200 },
+        "new-cylinder": { "6kg": 5700, "13kg": 8500, "19kg": 11000 },
+        accessory: { "6kg": 1200, "13kg": 1500, "19kg": 1800 },
+        bulk: { "6kg": 1350, "13kg": 2800, "19kg": 4200 }
+      };
+
+      function formatKES(value) {
+        return "KES " + value.toLocaleString();
+      }
+
+      function setTheme(theme) {
+        if (theme === "light") {
+          body.classList.add("light-theme");
+          themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+          if (mobileThemeToggle) {
+            mobileThemeToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Switch to Dark';
+          }
+        } else {
+          body.classList.remove("light-theme");
+          themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+          if (mobileThemeToggle) {
+            mobileThemeToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Switch to Light';
+          }
+        }
+        localStorage.setItem("svGasTheme", theme);
+      }
+
+      function updateSummary() {
+        const brand = brandSelect.value;
+        const size = sizeSelect.value;
+        const quantity = Number(quantityInput.value);
+        const productCategory = productType.value;
+
+        const priceGroup = sizePrices[selectedOrderType] || sizePrices.refill;
+        const basePrice = priceGroup[size] || 1350;
+
+        const subtotal = basePrice * quantity;
+        const deliveryFee = selectedDelivery === "urgent" ? 300 : 150;
+        const total = subtotal + deliveryFee;
+
+        const orderTypeLabel =
+          selectedOrderType === "refill" ? "Refill" :
+          selectedOrderType === "new-cylinder" ? "New Cylinder" :
+          selectedOrderType === "accessory" ? "Accessory Order" :
+          "Bulk / Hostel Order";
+
+        const deliveryLabel = selectedDelivery === "urgent" ? "Urgent" : "Standard";
+        const paymentLabel = selectedPayment === "cash" ? "Cash on Delivery" : "Mobile Money";
+
+        summaryProductName.textContent = `${brand} ${size} ${productCategory === "accessory" ? "Accessory" : "Cylinder"}`;
+        summaryProductType.textContent = `${orderTypeLabel} • ${productCategory === "accessory" ? "Accessory" : "Cylinder"}`;
+        summaryBrand.textContent = brand;
+        summarySize.textContent = size;
+        summaryQuantity.textContent = quantity;
+        summaryDelivery.textContent = deliveryLabel;
+        summaryPayment.textContent = paymentLabel;
+        summarySubtotal.textContent = formatKES(subtotal);
+        summaryFee.textContent = formatKES(deliveryFee);
+        summaryTotal.textContent = formatKES(total);
+      }
+
+      function activateOption(cards, activeCard) {
+        cards.forEach((card) => card.classList.remove("active"));
+        activeCard.classList.add("active");
+      }
+
+      orderTypeOptions.forEach((card) => {
+        card.addEventListener("click", () => {
+          selectedOrderType = card.dataset.orderType;
+          activateOption(orderTypeOptions, card);
+          updateSummary();
+        });
+      });
+
+      deliveryChoices.forEach((choice) => {
+        choice.addEventListener("click", () => {
+          selectedDelivery = choice.dataset.delivery;
+          activateOption(deliveryChoices, choice);
+          updateSummary();
+        });
+      });
+
+      paymentChoices.forEach((choice) => {
+        choice.addEventListener("click", () => {
+          selectedPayment = choice.dataset.payment;
+          activateOption(paymentChoices, choice);
+          updateSummary();
+        });
+      });
+
+      [productType, brandSelect, sizeSelect, quantityInput].forEach((element) => {
+        element.addEventListener("change", updateSummary);
+        element.addEventListener("input", updateSummary);
+      });
+
+      placeOrderBtn.addEventListener("click", () => {
+        if (!fullName.value.trim()) {
+          alert("Please enter your full name.");
+          fullName.focus();
+          return;
+        }
+
+        if (!phoneNumber.value.trim()) {
+          alert("Please enter your phone number.");
+          phoneNumber.focus();
+          return;
+        }
+
+        if (!areaInput.value.trim()) {
+          alert("Please enter your area, estate, or hostel.");
+          areaInput.focus();
+          return;
+        }
+
+        const orderPreview =
+          "Order Preview:\n\n" +
+          "Name: " + fullName.value.trim() + "\n" +
+          "Phone: " + phoneNumber.value.trim() + "\n" +
+          "Area: " + areaInput.value.trim() + "\n" +
+          "Landmark: " + (landmarkInput.value.trim() || "Not provided") + "\n" +
+          "Order Type: " + selectedOrderType + "\n" +
+          "Category: " + productType.value + "\n" +
+          "Brand: " + brandSelect.value + "\n" +
+          "Size: " + sizeSelect.value + "\n" +
+          "Quantity: " + quantityInput.value + "\n" +
+          "Delivery: " + selectedDelivery + "\n" +
+          "Payment: " + selectedPayment + "\n" +
+          "Product Notes: " + (notesInput.value.trim() || "None") + "\n" +
+          "Delivery Notes: " + (deliveryNotes.value.trim() || "None") + "\n" +
+          "Total: " + summaryTotal.textContent + "\n\n" +
+          "This is a frontend order preview. Next, it can be connected to WhatsApp, email, or backend submission.";
+
+        alert(orderPreview);
+      });
+
+      const savedTheme = localStorage.getItem("svGasTheme");
+      setTheme(savedTheme || "dark");
+
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = body.classList.contains("light-theme") ? "dark" : "light";
+        setTheme(nextTheme);
+      });
+
+      if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener("click", () => {
+          const nextTheme = body.classList.contains("light-theme") ? "dark" : "light";
+          setTheme(nextTheme);
+        });
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("active");
+          menuToggle.innerHTML = mobileMenu.classList.contains("active")
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+      }
+
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+      });
+
+      updateSummary();
+    })();
+  </script>
+</body>
+</html>
